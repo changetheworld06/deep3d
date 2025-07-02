@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+  <h1>Nos Sélections et Articles 3D</h1>
+  <p class="subtitle">Idées, classements, inspirations pour vos impressions</p>
+</div>
+
+<div class="articles">
+
+  <div class="card">
+    <a href="{{ url_for('article', slug='lampes-3d') }}">
+      <img src="{{ url_for('static', filename='images/10lampes.png') }}" alt="10 lampes stylées à imprimer en 3D">
+      <h2>🛋️ Les 10 Lampes les Plus Stylées à Imprimer en 3D</h2>
+      <p>Une sélection unique de lampes design, spirales, lunes et formes géométriques à imprimer chez toi.</p>
+    </a>
+  </div>
+
+  <div class="card">
+    <a href="{{ url_for('article', slug='avenir-impression-3d') }}">
+      <img src="{{ url_for('static', filename='images/avenir-3d.png') }}" alt="Quel avenir pour l’impression 3D ?">
+      <h2>Quel avenir pour l’impression 3D ?</h2>
+      <p>10 prédictions fascinantes pour 2035 : santé, maison, espace, IA... Le futur s'imprime dès maintenant !</p>
+    </a>
+  </div>
+
+  <!-- Ajoute ici d’autres blocs .card si tu veux -->
+
+</div>
+{% endblock %}

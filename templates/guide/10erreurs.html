@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="{{ url_for('static', filename='images/erreurs3d.jpg') }}" alt="Bien débuter impression 3D" style="max-width: 50%; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+</div>
+<style>
+  .article-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    color: #333;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .article-container h1, .article-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .article-container h2 {
+    font-size: 1.6rem;
+    margin-top: 40px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+  }
+
+  .article-container h3 {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    color: #444;
+  }
+
+  .article-container p {
+    margin-bottom: 18px;
+  }
+
+  .article-container ul {
+    margin: 15px 0 30px 20px;
+  }
+
+  .article-container li {
+    margin-bottom: 8px;
+  }
+
+  .article-container blockquote {
+    background: #f9f9f9;
+    border-left: 4px solid #ccc;
+    padding: 10px 15px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #555;
+  }
+
+  .article-container img {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .highlight {
+    background: #fffae5;
+    border-left: 5px solid #fcbf49;
+    padding: 10px 15px;
+    margin: 20px 0;
+  }
+</style>
+<div class="article-container">
+  <h1>Impression 3D : Les 10 Erreurs de Débutant (et Leurs Solutions Simples)</h1>
+
+  <p>Vous venez de déballer votre nouvelle imprimante 3D, le regard plein d’étoiles. Vous lancez votre première impression… et le résultat ressemble plus à un plat de spaghettis qu’à l’objet de vos rêves.</p>
+  <p>Bienvenue dans le club ! L’erreur fait partie intégrante de l’apprentissage en impression 3D, et même les experts rencontrent des échecs. La différence ? Ils ont appris à les reconnaître et à les corriger rapidement.</p>
+  <p>Ce guide est votre trousse de premiers secours. Nous allons décortiquer les 10 problèmes les plus fréquents pour que vous puissiez non seulement les résoudre, mais aussi les anticiper. Prêt à transformer vos frustrations en réussites ? C'est parti !</p>
+
+  <h2>Le Top 10 des Erreurs et Comment les Corriger</h2>
+
+  <h2>Erreur n°1 : L’impression n’adhère pas au plateau</h2>
+  <p><strong>Le problème :</strong> Au lieu de former une première couche nette, le filament ne colle pas, glisse sur le plateau ou forme une boule informe autour de la buse. C'est l'échec le plus courant et le plus frustrant.</p>
+  <img 
+  src="{{ url_for('static', filename='images/erreur1_plateau.jpg') }}" 
+  alt="Plateau d'impression avec des fils de plastique emmêlés" 
+  style="width:300px; height:auto; margin:10px auto; display:block;"
+>
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>Nettoyez le plateau : Utilisez de <a href="https://www.amazon.fr/EQM-SOLUCIONES-ECO-301-Isopropylique-%C3%A9lectroniques/dp/B07SH9FY7G?crid=42BJ2HQNYRPT&dib=eyJ2IjoiMSJ9.A8IhEZqNofHlBrmXoi60f-ehnyFzkIrXDGk_M-xHow0mBMj95A588wNHdeKMofrqAe6_gsY5aSKAIT2tbRFkSM3gucpvpSR3SMEM0mQmbQv_-dNNGTDGwMm9RkqyZ2G9jERT8bgwXhXigPU1fX61zV5r48HLU22EFEN90Y-fI-94zVlgcRw_sE-g6mSBECeI4z6p0lQHlFa-LvFOBEP3p-UuA4svGvOd4zhjxcnil6hrg-qq-IoMKl-6HeEr331wJC1t1RcMgVW4ct4ysOp4UG-XWDCYmlJo__objxVGyVI.9zSxVs19UJOhSmKDqo-giLNrmTcjHzCZsBhUiFEqMV8&dib_tag=se&keywords=alcool%2Bisopropylique&qid=1751465449&s=specialty-aps&sprefix=alcool%2Cspecialty-aps%2C130&sr=8-1&th=1&linkCode=ll1&tag=smarthomehu07-21&linkId=f0091b0e0d5f8b014369fb3de5bbe3ac&language=fr_FR&ref_=as_li_ss_tl" target="_blank" rel="noopener noreferrer">
+        Acheter cet alcool isopropylique sur Amazon
+      </a>">l’alcool isopropylique (IPA)</a>.</li>
+      <li>Nivelez le plateau : Utilisez une feuille de papier comme jauge.</li>
+      <li>Ajoutez un brim : dans <a href="https://ultimaker.com/software/ultimaker-cura">Cura</a> ou <a href="https://www.prusa3d.com/prusaslicer/">PrusaSlicer</a>, activez un brim de 5 à 10 lignes.</li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> La première couche est la fondation de votre impression. 90 % des échecs y sont liés.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Sur plateau lisse, une fine couche de bâton UHU ou de spray adhésif 3D fait des miracles.
+  </div>
+
+  <h2>Erreur n°2 : Le décollement des coins (Warping)</h2>
+  <p><strong>Le problème :</strong> Les coins ou bords de votre objet se soulèvent et se recourbent.</p>
+  <img 
+  src="{{ url_for('static', filename='images/erreur2_warping.jpg') }}" 
+  alt="Cube dont les coins inférieurs sont décollés du plateau" 
+  class="error-image"
+  style="width:300px; height:auto; margin:10px auto; display:block;"
+>
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>Plateau chauffant à 60 °C pour le PLA.</li>
+      <li>Ajoutez brim ou raft.</li>
+      <li>Évitez les courants d'air.</li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> Le plastique se contracte en refroidissant.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Activez le « Draft Shield » dans votre slicer.
+  </div>
+
+  <h2>Erreur n°3 : La buse est bouchée (Clogged Nozzle)</h2>
+  <p><strong>Le problème :</strong> Plus de filament ne sort, ou seulement de fines toiles d'araignée.</p>
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>Nettoyage à 220 °C, poussez du filament manuellement.</li>
+      <li>Faites un « Cold Pull » avec du Nylon.</li>
+      <li>Utilisez l’aiguille de nettoyage fournie.</li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> La poussière et les résidus carbonisés bouchent la buse.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Pratiquez régulièrement le « Cold Pull ».
+  </div>
+
+  <h2>Erreur n°4 : Les couches sont décalées (Layer Shifting)</h2>
+  <p><strong>Le problème :</strong> L’impression présente un aspect d’escalier.</p>
+  <img src="{{ url_for('static', filename='images/erreur4_decalage.jpg') }}"
+  alt="Erreur n°4 : Layer shifting"
+  style="display:block;
+         max-width: 300px;
+         width: 50%;
+         height: auto;
+         margin: 20px auto;" />
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>Vérifiez la tension des courroies.</li>
+      <li>Lubrifiez les axes.</li>
+      <li>Réduisez la vitesse d’impression.</li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> C’est presque toujours un problème mécanique.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Serrez les vis de fixation des poulies.
+  </div>
+
+  <h2>Erreur n°5 : Le filament n’est pas extrudé</h2>
+  <p><strong>Le problème :</strong> Le moteur tourne mais rien ne sort.</p>
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>Débrouillez la bobine.</li>
+      <li>Ajustez la tension de l’extrudeur.</li>
+      <li>Augmentez la température de 5 °C.</li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> L’extrudeur doit fournir assez de force.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Calibrez vos « E-steps ».
+  </div>
+
+  <h2>Erreur n°6 : Over/Under-extrusion</h2>
+  <p><strong>Le problème :</strong> Sous-extrusion ou sur-extrusion.</p>
+  <img src="{{ url_for('static', filename='images/erreur6_comparaison.jpg') }}"
+  alt="Under vs Over-extrusion"
+  style="display:block; max-width:400px; width:100%; height:auto; margin:20px auto;" />
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>Vérifiez le diamètre du filament (1,75 mm).</li>
+      <li>Calibrez l’extrudeur.</li>
+      <li>Ajustez le paramètre « Flow ». </li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> Chaque bobine peut varier.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Mesurez un cube au pied à coulisse.
+  </div>
+
+  <h2>Erreur n°7 : Détails insuffisants</h2>
+  <p><strong>Le problème :</strong> Les courbes sont pixelisées.</p>
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>Hauteur de couche 0,12 mm.</li>
+      <li>Baissez la vitesse.</li>
+      <li>Buse 0,25 mm pour l’extrême.</li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> Détail ⇄ temps d’impression.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Activez l’« Adaptive Layer Height ».
+  </div>
+
+  <h2>Erreur n°8 : Supports impossibles à retirer</h2>
+  <p><strong>Le problème :</strong> Les supports adhèrent trop.</p>
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>Réglez la « Distance Z » support-pièce.</li>
+      <li>Positionnez la pièce pour réduire les besoins.</li>
+      <li>Utilisez les « Tree Supports ». </li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> Un bon équilibre distance/densité est crucial.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Densité à 10-15 %.
+  </div>
+
+  <h2>Erreur n°9 : Pièces cassantes</h2>
+  <p><strong>Le problème :</strong> La pièce se brise facilement.</p>
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>3–4 murs.</li>
+      <li>20–25 % de remplissage.</li>
+      <li>Passez à PETG ou ABS.</li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> L’orientation des couches impacte la résistance.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Orientez selon les lignes de couche.
+  </div>
+
+  <h2>Erreur n°10 : Aucun G-code</h2>
+  <p><strong>Le problème :</strong> Rien ne s’affiche ou ne démarre.</p>
+  <div class="tip">
+    <strong>La solution rapide :</strong>
+    <ul>
+      <li>Exportez bien un G-code.</li>
+      <li>Vérifiez le tranchage en aperçu.</li>
+      <li>Réparez le STL avec 3D Builder ou Meshmixer.</li>
+    </ul>
+  </div>
+  <p><strong>À Savoir :</strong> Un STL non-manifold bloque le slicer.</p>
+  <div class="pro-tip">
+    <strong>Astuce de Pro :</strong> Faites un test de 5 mm avant une longue impression.
+  </div>
+
+  <h2>Au-delà des Corrections : La Prévention est la Clé</h2>
+  <ul>
+    <li>Maintenance : nettoyez, dépoussiérez, vérifiez les courroies.</li>
+    <li>Apprenez le vocabulaire : gardez le <a href="http://127.0.0.1:5000/guide/lexique-impression-3d">Lexique Essentiel</a>.</li>
+    <li>Soyez curieux : explorez <a href="https://www.lesimprimantes3d.fr">forums</a> et tutoriels.</li>
+  </ul>
+
+  <h2>Conclusion : Ne Baissez Pas les Bras !</h2>
+  <p>L’impression 3D est un voyage, pas une destination. Chaque échec est une leçon. Partagez vos astuces en commentaire !</p>
+</div>
+{% endblock %}

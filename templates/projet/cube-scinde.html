@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: auto; padding: 2rem; font-family: sans-serif;">
+
+  <!-- Titre -->
+  <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">
+    🧊 Vase Cube Scindé
+  </h1>
+
+  <!-- Image -->
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <img src="{{ url_for('static', filename='images/cube-scinde.jpg') }}"
+         alt="Vase Cube Scindé"
+         style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <!-- Texte -->
+  <div style="font-size: 1.2rem; line-height: 1.8;">
+    <p>
+      Ce vase à l’esthétique géométrique, nommé « Cube Scindé », se distingue par son aspect minimaliste et contemporain.
+      Avec ses lignes nettes et son inclinaison audacieuse, il s’intègre parfaitement dans les intérieurs modernes, où chaque objet devient une œuvre.
+    </p>
+
+    <p>
+      Son design original évoque à la fois la stabilité du cube et la rupture, offrant une dualité visuelle élégante.
+      Une pièce de décoration aussi artistique que fonctionnelle, qui attire le regard tout en restant discrète.
+    </p>
+
+    <p>
+      Idéal à imprimer avec un filament mat ou texturé pour mettre en valeur ses arêtes, ce vase trouvera sa place sur une étagère design, une table basse ou un bureau.
+      Tu peux également y insérer une petite plante ou des fleurs séchées pour une touche naturelle.
+    </p>
+  </div>
+
+  <!-- Lien Cults -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="https://cults3d.com/fr/mod%C3%A8le-3d/maison/vase-cube-scinde" target="_blank"
+       style="display: inline-block; background: #ff5252; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-size: 1.2rem;">
+      📥 Voir le modèle 3D sur Cults3D
+    </a>
+  </div>
+
+</div>
+{% endblock %}

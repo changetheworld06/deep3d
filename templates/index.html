@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  .home-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .card {
+    flex: 1 1 300px;
+    max-width: 320px;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+    margin: 15px 10px 5px;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    padding: 0 15px 20px;
+    color: #666;
+  }
+
+  .section-link {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .section-link a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .section-link a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<!-- SECTION ARTICLES -->
+<div class="home-section">
+  <div class="page-header">
+    <h1>Nos Sélections et Articles 3D</h1>
+    <p class="subtitle">Idées, classements, inspirations pour vos impressions</p>
+  </div>
+  <div class="card-grid">
+    <a class="card" href="{{ url_for('article', slug='avenir-impression-3d') }}">
+      <img src="{{ url_for('static', filename='images/avenir-3d.png') }}" alt="Avenir impression 3D">
+      <h3>Quel avenir pour l’impression 3D ?</h3>
+      <p>10 prédictions fascinantes pour 2035. Le futur s’imprime dès maintenant !</p>
+    </a>
+
+    <a class="card" href="{{ url_for('article', slug='lampes-3d') }}">
+      <img src="{{ url_for('static', filename='images/10lampes.png') }}" alt="Top 10 lampes 3D">
+      <h3>Top 10 Lampes à Imprimer</h3>
+      <p>Une sélection unique de lampes stylées à imprimer chez soi.</p>
+    </a>
+  </div>
+  <div class="card-grid" style="justify-content: center; margin-top: 30px;">
+    <a class="card" href="/articles">
+      <h3 style="margin: 30px 10px;">📚 Voir tous les articles</h3>
+      <p style="padding: 0 20px 30px; color: #555;">Parcourez toutes nos sélections et idées autour de l’impression 3D.</p>
+    </a>
+  </div>
+</div>
+
+<!-- SECTION IMPRESSIONS -->
+<div class="home-section">
+  <div class="page-header">
+    <h1>Projets 3D à Imprimer</h1>
+    <p>Découvrez une sélection de modèles 3D à imprimer chez vous ! Ces projets sont créatifs, utiles ou amusants, et accessibles.</p>
+  </div>
+  <div class="card-grid">
+    <!-- Projet 2 : Cube Infini -->
+<a class="card" href="/projet/cube-infini">
+  <img src="{{ url_for('static', filename='images/cube-infini.jpg') }}" alt="Cube infini à imprimer">
+  <h3>Cube Infini</h3>
+  <p>Un jouet hypnotique à manipuler sans fin, parfait pour se détendre.</p>
+</a>
+    <a class="card" href="/projet/velociraptor">
+      <img src="{{ url_for('static', filename='images/velociraptor.jpg') }}" alt="Impression dinosaure">
+      <h3>Velociraptor articulé</h3>
+      <p>Un classique ultra-populaire à imprimer chez soi, pour enfants ou fans de Jurassic Park.</p>
+    </a>
+    <!-- Projet 3 : Porte-livre Tortue -->
+<a class="card" href="/projet/porte-livre-tortue">
+  <img src="{{ url_for('static', filename='images/portelivretortue.webp') }}" alt="Porte-livre en forme de tortue">
+  <h3>Porte-livre Tortue</h3>
+  <p>Un support original pour maintenir vos livres ouverts pendant la lecture.</p>
+</a>
+    <!-- Tu peux ajouter d’autres projets ici -->
+  </div>
+  <div class="card-grid" style="justify-content: center; margin-top: 30px;">
+    <a class="card" href="/impressions">
+      <h3 style="margin: 30px 10px;">🦖 Voir toutes les impressions</h3>
+      <p style="padding: 0 20px 30px; color: #555;">Explorez notre collection de modèles imprimables chez vous.</p>
+    </a>
+  </div>
+</div>
+
+<!-- SECTION NEWS -->
+<div class="home-section">
+  <div class="page-header">
+    <h1>Actualité de l’Impression 3D</h1>
+    <p class="subtitle">Les tendances, nouveautés et annonces du secteur</p>
+  </div>
+  <div class="home-section">
+    <h2 class="section-title">📰 Nouveautés & IA</h2>
+    <div class="card-grid">
+      <a href="{{ url_for('news_article', slug='creez-objet-3d-avec-ia') }}" class="card">
+        <img src="{{ url_for('static', filename='images/ia-3d.jpg') }}" alt="Créer un objet 3D avec l’IA">
+        <h3>🤖 Créez un objet 3D avec l’IA</h3>
+        <p>Le guide complet pour transformer vos idées en modèles imprimables, sans modélisation.</p>
+      </a>
+    </div>
+    <div class="card-grid" style="justify-content: center; margin-top: 30px;">
+      <a class="card" href="/news">
+        <h3 style="margin: 30px 10px;">📰 Voir toutes les actualités</h3>
+        <p style="padding: 0 20px 30px; color: #555;">
+          Les dernières infos, tests et innovations du monde de l’impression 3D.
+        </p>
+      </a>
+    </div>
+  </div>
+
+<!-- SECTION TESTS -->
+<div class="home-section">
+  <div class="page-header">
+    <h1>Tests & Comparatifs</h1>
+    <p class="subtitle">Filaments, imprimantes, accessoires... à la loupe</p>
+  </div>
+  <div class="card-grid">
+    <a href="{{ url_for('test_article', slug='la-bambu-lab-a1-mini') }}" class="card">
+      <img src="{{ url_for('static', filename='images/bambulaba1mini.jpg') }}" alt="Bambu Lab A1 Mini" style="width: 100%; height: 200px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px;">
+      <h3 style="margin: 15px 10px 5px; font-size: 1.2rem;">⚡ Bambu Lab A1 Mini : la révolution ?</h3>
+      <p style="padding: 0 15px 20px; font-size: 0.95rem; color: #666;">Une imprimante rapide, simple et intelligente : test complet pour débutants.</p>
+    </a>
+
+    <a href="{{ url_for('test_article', slug='crealityk1c') }}" class="card">
+      <img src="{{ url_for('static', filename='images/crealityk1c.jpg') }}" alt="Bambu Lab A1 Mini" style="width: 100%; height: 200px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px;">
+      <h3 style="margin: 15px 10px 5px; font-size: 1.2rem;">La Creality K1C est-elle la Nouvelle Référence pour les Makers Exigeants ?</h3>
+      <p style="padding: 0 15px 20px; font-size: 0.95rem; color: #666;">La Creality K1C n'est pas une simple mise à jour, c'est une machine qui a trouvé sa cible. : test complet pour débutants.</p>
+    </a>
+
+  </div>
+  <div class="card-grid" style="justify-content: center; margin-top: 30px;">
+    <a class="card" href="/tests">
+      <h3 style="margin: 30px 10px;">🧪 Voir les tests</h3>
+      <p style="padding: 0 20px 30px; color: #555;">Tests d’imprimantes, filaments et accessoires pour mieux choisir.</p>
+    </a>
+  </div>
+</div>
+
+<!-- SECTION GUIDE -->
+<div class="home-section">
+  <div class="page-header">
+    <h1>Guide Pratique</h1>
+    <p class="subtitle">Tutos, réglages, conseils pour bien débuter</p>
+  </div>
+
+  <h2 class="section-title">📘 Guide Pratique</h2>
+  <div class="card-grid">
+    <!-- ARTICLE 1 -->
+    <a href="{{ url_for('guide_article', slug='bien-debuter-impression-3d') }}" class="card">
+      <img src="{{ url_for('static', filename='images/debuter.jpg') }}" alt="Bien débuter en impression 3D">
+      <h3>🧠 Bien débuter en impression 3D</h3>
+      <p>Le guide complet pour réussir votre première impression sans stress.</p>
+    </a>
+
+    <!-- ARTICLE 2 : LEXIQUE -->
+    <a href="{{ url_for('guide_article', slug='lexique-impression-3d') }}" class="card">
+      <img src="{{ url_for('static', filename='images/lexique.jpg') }}" alt="Lexique impression 3D">
+      <h3>📗 Lexique de l’impression 3D</h3>
+      <p>Les 10 termes à connaître pour comprendre votre imprimante et réussir vos impressions.</p>
+    </a>
+
+    <!-- ARTICLE 3 : Les 10 Erreurs de Débutant -->
+    <a href="{{ url_for('guide_article', slug='10erreurs') }}" class="card">
+      <img src="{{ url_for('static', filename='images/erreurs3d.jpg') }}" alt="Les 10 erreurs de débutant">
+      <h3>⚠️ Les 10 Erreurs de Débutant</h3>
+      <p>Identifiez et corrigez les problèmes les plus courants pour réussir vos impressions 3D.</p>
+    </a>
+  </div>
+
+    <!-- BOUTON "TOUS LES GUIDES" EN CARD -->
+    <div class="card-grid" style="justify-content: center; margin-top: 30px;">
+      <a class="card" href="/guide">
+        <h3 style="margin: 30px 10px;">📘 Voir tous les guides</h3>
+        <p style="padding: 0 20px 30px; color: #555;">Tous nos tutos et conseils pour progresser à votre rythme.</p>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

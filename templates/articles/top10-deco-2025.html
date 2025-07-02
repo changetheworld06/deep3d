@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: auto; padding: 2rem; font-family: sans-serif;">
+  <h1 style="text-align: center;">🛋️ Top 10 Fichiers STL pour Décorer votre Salon (2025)</h1>
+
+  <p>Découvre les modèles les plus stylés à imprimer cette année pour embellir ton intérieur :</p>
+
+  <ol>
+    <li><strong>Vase organique</strong> – Parfait pour une ambiance naturelle</li>
+    <li><strong>Lampe spirale</strong> – Design futuriste</li>
+    <li><strong>Cadre géométrique</strong> – Pour mettre en valeur tes photos</li>
+    <!-- etc... -->
+  </ol>
+
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="{{ url_for('articles') }}"
+       style="padding: 12px 24px; background: #444; color: white; border-radius: 6px; text-decoration: none;">
+       ← Retour aux articles
+    </a>
+  </div>
+</div>
+{% endblock %}

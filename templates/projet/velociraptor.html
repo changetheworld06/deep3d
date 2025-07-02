@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: auto; padding: 2rem; font-family: sans-serif;">
+
+  <!-- Titre -->
+  <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">
+    🦖 Squelette de Vélociraptor – Taille réelle
+  </h1>
+
+  <!-- Image -->
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <img src="{{ url_for('static', filename='images/velociraptor.jpg') }}"
+         alt="Squelette de vélociraptor"
+         style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <!-- Texte -->
+  <div style="font-size: 1.2rem; line-height: 1.8;">
+    <p>
+      Le vélociraptor, rendu célèbre par les films de la saga <em>Jurassic Park</em>, était un dinosaure carnivore de la famille des dromaeosauridés. Bien qu’il soit souvent représenté comme un prédateur de grande taille, il mesurait en réalité environ 2 mètres de long pour un poids de 15 à 20 kg. Sa taille modeste était compensée par une vivacité redoutable, une agilité hors du commun et une griffe en forme de faucille sur chaque patte arrière, utilisée pour lacérer ses proies.
+    </p>
+
+    <p>
+      Ce squelette imprimable en 3D à l’échelle 1:1 est une occasion unique de redonner vie à l’un des plus fascinants chasseurs du Crétacé. Chaque os a été modélisé pour refléter fidèlement l’anatomie supposée de l’animal, en s’appuyant sur les dernières découvertes paléontologiques. L’ensemble, une fois assemblé, impressionne par sa taille réelle et la finesse de ses détails.
+    </p>
+
+    <p>
+      Exposé dans un salon, un bureau, une salle de jeu ou même un espace muséal, le squelette devient immédiatement une pièce maîtresse. Il attire les regards, suscite la curiosité et donne lieu à des échanges passionnants sur l’évolution, les fossiles et l’imaginaire collectif autour des dinosaures. C’est aussi un hommage à la science et à l’impression 3D, qui permet aujourd’hui de matérialiser les créatures du passé.
+    </p>
+
+    <p>
+      Pour valoriser ce squelette, tu peux créer un socle en bois sombre ou un support en métal discret, et ajouter un petit panneau explicatif à côté. Une lumière directionnelle douce peut mettre en relief les détails osseux, donnant une ambiance à la fois scientifique et esthétique.
+    </p>
+  </div>
+
+  <!-- Lien Cults -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="https://cults3d.com/fr/mod%C3%A8le-3d/divers/full-size-velociraptor-skeleton-part05-05" target="_blank"
+       style="display: inline-block; background: #ff5252; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-size: 1.2rem;">
+      📥 Voir le modèle 3D sur Cults3D
+    </a>
+  </div>
+
+</div>
+{% endblock %}

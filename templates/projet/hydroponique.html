@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: auto; padding: 2rem; font-family: sans-serif;">
+
+  <!-- Titre -->
+  <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">
+    🌱 Système Hydroponique en Tour
+  </h1>
+
+  <!-- Image -->
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <img src="{{ url_for('static', filename='images/hydroponic.jpg') }}"
+         alt="Système hydroponique imprimé en 3D"
+         style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <!-- Texte -->
+  <div style="font-size: 1.2rem; line-height: 1.8;">
+    <p>
+      Ce système hydroponique vertical est une solution ingénieuse pour cultiver facilement des fraises, herbes aromatiques, ou autres petites plantes en intérieur.
+      Son design modulaire, 100 % imprimé en 3D, permet d’empiler les niveaux selon l’espace disponible et le volume de culture souhaité.
+    </p>
+
+    <p>
+      Idéal pour les petits appartements ou les amateurs de jardinage urbain, cette tour maximise l’utilisation de l’espace en hauteur et réduit le besoin en terre.
+      Elle favorise une culture propre, efficace et sans pesticides.
+    </p>
+
+    <p>
+      Grâce à sa structure bien pensée, l’eau circule de manière fluide entre les niveaux, assurant une bonne irrigation. Compacte, légère et éco-responsable, c’est un parfait exemple d’innovation accessible grâce à l’impression 3D.
+    </p>
+
+    <p>
+      Ce projet peut aussi être une belle introduction à la culture hydroponique pour les débutants, ou un ajout pratique et décoratif à un potager d’intérieur.
+    </p>
+  </div>
+
+  <!-- Lien MakerWorld -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="https://makerworld.com/fr/models/1526699-tower-hydroponic-system-part-1#profileId-1600483" target="_blank"
+       style="display: inline-block; background: #00b894; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-size: 1.2rem;">
+      📥 Voir le modèle 3D sur MakerWorld
+    </a>
+  </div>
+
+</div>
+{% endblock %}

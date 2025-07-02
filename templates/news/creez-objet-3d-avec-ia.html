@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+    <img src="{{ url_for('static', filename='images/ia-3d.jpg') }}" alt="Bien débuter impression 3D" style="max-width: 50%; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  </div>
+
+<div class="article-body" style="max-width: 800px; margin: auto; padding: 20px; line-height: 1.7; font-size: 1.05rem;">
+
+<h2>Introduction : La modélisation 3D, ce n'est plus sorcier !</h2>
+<p>Pendant des années, créer un objet en 3D était un parcours du combattant, réservé aux experts maîtrisant des logiciels complexes comme Blender ou 3ds Max. Il fallait des heures, voire des jours, pour modéliser le moindre personnage ou prototype. Cette époque est révolue.</p>
+<p>L'intelligence artificielle est en train de pulvériser les barrières de la création. Aujourd'hui, votre imagination est la seule compétence requise. Avec une simple phrase descriptive ("un champignon magique avec une porte ronde") ou une image, des outils IA peuvent générer un modèle 3D en quelques minutes.</p>
+<p>Ce guide vous montrera, pas à pas, comment utiliser cette magie pour donner vie à vos idées. Préparez-vous à devenir un créateur 3D, sans jamais avoir touché à un logiciel de modélisation.</p>
+
+<h2>Les nouveaux outils magiques : 3 IA pour transformer vos mots en objets</h2>
+<h3>1. Meshy : Le générateur instantané</h3>
+<p><strong>C'est quoi ?</strong> Une plateforme web ultra-simple qui transforme du texte ou une image en modèle 3D en quelques secondes. C'est l'outil parfait pour une première expérience.</p>
+<p><strong>Comment ça marche ?</strong><br>
+Vous écrivez une description (prompt) : "un robot mignon de style cartoon, agitant la main".<br>
+Vous choisissez un style (ex: réaliste, low-poly, cartoon).<br>
+L'IA génère un modèle 3D que vous pouvez visualiser, puis télécharger.</p>
+<p><strong>Idéal pour :</strong> Prototyper une idée rapidement, créer des personnages ou des objets pour un jeu vidéo amateur, ou simplement s'amuser à visualiser des concepts fous.</p>
+<p><strong>À tester :</strong> Connectez-vous sur <a href="https://meshy.ai" target="_blank">Meshy.ai</a>, utilisez leur offre gratuite et essayez ce prompt : <em>a small, cute dragon sleeping on a pile of books, stylized</em>.</p>
+
+<h3>2. Sloyd : Le personnalisateur intelligent</h3>
+<p><strong>C'est quoi ?</strong> Sloyd va plus loin que la simple génération. Il crée des modèles 3D "paramétriques", c'est-à-dire que vous pouvez ajuster finement après leur création à l'aide de curseurs.</p>
+<p><strong>Comment ça marche ?</strong><br>
+Vous décrivez un objet : "une épée fantastique".<br>
+Sloyd génère une épée de base.<br>
+Des curseurs apparaissent : vous pouvez modifier la longueur de la lame, la forme de la garde, la taille du pommeau...</p>
+<p><strong>Idéal pour :</strong> Le design produit, la création d'accessoires personnalisés pour l'impression 3D, ou la génération d'assets de jeu vidéo.</p>
+<p><strong>À tester :</strong> Visitez <a href="https://sloyd.ai" target="_blank">Sloyd.ai</a> et essayez une "chaise en bois rustique".</p>
+
+<h3>3. Blender + ChatGPT : Le combo pour les plus créatifs</h3>
+<p><strong>C'est quoi ?</strong> L'approche la plus puissante, qui combine la flexibilité de l'IA de ChatGPT avec la puissance de Blender. Ici, l'IA ne crée pas l'objet, mais le code pour le créer.</p>
+<p><strong>Comment ça marche ?</strong><br>
+Vous demandez à ChatGPT : "Écris un script Python pour Blender qui crée un escalier en colimaçon de 20 marches."<br>
+Dans Blender, allez dans "Scripting", collez le code, cliquez sur "Run Script".<br>
+L'escalier apparaît !</p>
+<p><strong>Idéal pour :</strong> Créer des formes géométriques complexes, automatiser des tâches répétitives, apprendre le scripting.</p>
+
+<h2>Votre guide pas à pas : Créez votre premier objet en 5 minutes</h2>
+<ol>
+  <li><strong>Choisir votre outil :</strong> Rendez-vous sur <a href="https://meshy.ai" target="_blank">Meshy.ai</a>.</li>
+  <li><strong>Rédiger votre phrase magique :</strong> "une voiture de sport rouge, de style futuriste, avec des portes papillon".</li>
+  <li><strong>Générer le modèle :</strong> Collez la phrase, choisissez un style, cliquez sur "Generate".</li>
+  <li><strong>Télécharger votre création :</strong> Choisissez .STL pour impression ou .FBX / .OBJ pour jeu / animation.</li>
+  <li><strong>Imprimer ou intégrer :</strong> Slicer (ex : <a href="https://ultimaker.com/software/ultimaker-cura/" target="_blank">Cura</a> ou <a href="https://www.prusa3d.com/fr/page/prusaslicer_424/" target="_blank">PrusaSlicer</a>) ou Blender/Unity.</li>
+</ol>
+
+<h2>Conseils pour aller plus loin</h2>
+<ul>
+  <li>Nettoyer le modèle : Meshmixer ou Blender peuvent corriger les imperfections.</li>
+  <li>Combinez les outils : commencez sur Meshy, finissez sur Blender.</li>
+  <li>Trouvez l'inspiration : hashtag <strong>#AI3D</strong> sur les réseaux.</li>
+</ul>
+
+<h2>Conclusion : Votre imagination est la seule limite</h2>
+<p>La modélisation 3D assistée par IA n'est pas un gadget, c'est une révolution démocratique. Elle donne à chacun le pouvoir de matérialiser ses idées, sans barrière technique. Lancez-vous, testez les outils, amusez-vous, partagez vos créations. L'avenir de la 3D est entre vos mains !</p>
+
+</div>
+{% endblock %}

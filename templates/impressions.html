@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Impressions 3D - Deep3D{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1>Projets 3D à Imprimer</h1>
+  <p>Découvrez une sélection de modèles 3D à imprimer chez vous ! Ces projets sont créatifs, utiles ou amusants, et accessibles.</p>
+</div>
+
+<div class="projects-container">
+
+  <!-- 🧊 Cube Infini -->
+  <div class="card">
+    <a href="{{ url_for('projet', nom='cube-infini') }}">
+      <img src="{{ url_for('static', filename='images/cube-infini.jpg') }}" alt="Cube Infini 3D"
+           style="max-width: 600px; display: block; margin: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    </a>
+    <h2>Cube Infini</h2>
+    <p>Ce cube articulé tourne à l’infini. Ludique, relaxant, parfait en objet déco ou jouet anti-stress !</p>
+    <div class="buttons" style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;">
+      <button class="like-btn" data-projet="cube-infini">❤️ J'aime <span class="like-count">0</span></button>
+      <button class="share-btn" data-url="{{ url_for('projet', nom='cube-infini', _external=True) }}">📤 Partager</button>
+    </div>
+  </div>
+
+  <!-- 🐢 Porte-Livre Tortue -->
+  <div class="card">
+    <a href="{{ url_for('projet', nom='porte-livre-tortue') }}">
+      <img src="{{ url_for('static', filename='images/portelivretortue.webp') }}" alt="Bibliothèque tortue"
+           style="max-width: 600px; display: block; margin: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    </a>
+    <h2>Étagère Tortue Porte-Livres</h2>
+    <p>Un modèle impressionnant et décoratif : cette tortue élégante supporte vos livres avec style. Idéal pour une déco design et originale.</p>
+    <div class="buttons" style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;">
+      <button class="like-btn" data-projet="porte-livre-tortue">❤️ J'aime <span class="like-count">0</span></button>
+      <button class="share-btn" data-url="{{ url_for('projet', nom='porte-livre-tortue', _external=True) }}">📤 Partager</button>
+    </div>
+  </div>
+
+  <!-- 🌱 Hydroponique -->
+  <div class="card">
+    <a href="{{ url_for('projet', nom='hydroponique') }}">
+      <img src="{{ url_for('static', filename='images/hydroponic.jpg') }}" alt="Système hydroponique imprimé en 3D">
+    </a>
+    <h2>Système Hydroponique en Tour</h2>
+    <p>Un design ingénieux pour cultiver des fraises (et d'autres plantes) en intérieur, 100 % imprimé en 3D.</p>
+    <div class="buttons" style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;">
+      <button class="like-btn" data-projet="hydroponique">❤️ J'aime <span class="like-count">0</span></button>
+      <button class="share-btn" data-url="{{ url_for('projet', nom='hydroponique', _external=True) }}">📤 Partager</button>
+    </div>
+  </div>
+
+  <!-- 🚀 Fusée Tintin -->
+  <div class="card">
+    <a href="{{ url_for('projet', nom='fusee-tintin') }}">
+      <img src="{{ url_for('static', filename='images/fusee-tintin.jpg') }}" alt="Fusée Tintin" style="width:100%;">
+    </a>
+    <h2>Fusée Tintin</h2>
+    <p>La célèbre fusée rouge et blanche issue des aventures de Tintin ! Cliquez pour en savoir plus.</p>
+    <div class="buttons" style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;">
+      <button class="like-btn" data-projet="fusee-tintin">❤️ J'aime <span class="like-count">0</span></button>
+      <button class="share-btn" data-url="{{ url_for('projet', nom='fusee-tintin', _external=True) }}">📤 Partager</button>
+    </div>
+  </div>
+
+  <!-- 🧩 Vase Cube Scindé -->
+  <div class="card">
+    <a href="{{ url_for('projet', nom='cube-scinde') }}">
+      <img src="{{ url_for('static', filename='images/cube-scinde.jpg') }}" alt="Vase cube scindé" style="width:100%;">
+    </a>
+    <h2>Vase Cube Scindé</h2>
+    <p>Un vase moderne et géométrique à découvrir sur sa page dédiée.</p>
+    <div class="buttons" style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;">
+      <button class="like-btn" data-projet="cube-scinde">❤️ J'aime <span class="like-count">0</span></button>
+      <button class="share-btn" data-url="{{ url_for('projet', nom='cube-scinde', _external=True) }}">📤 Partager</button>
+    </div>
+  </div>
+
+  <!-- 🦖 Vélociraptor -->
+  <div class="card">
+    <a href="{{ url_for('projet', nom='velociraptor') }}">
+      <img src="{{ url_for('static', filename='images/velociraptor.jpg') }}" alt="Squelette vélociraptor" style="width:100%;">
+    </a>
+    <h2>Squelette de Vélociraptor</h2>
+    <p>Un squelette à taille réelle de dinosaure à imprimer en plusieurs pièces.</p>
+    <div class="buttons" style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;">
+      <button class="like-btn" data-projet="velociraptor">❤️ J'aime <span class="like-count">0</span></button>
+      <button class="share-btn" data-url="{{ url_for('projet', nom='velociraptor', _external=True) }}">📤 Partager</button>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

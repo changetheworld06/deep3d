@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Actualité de l’Impression 3D</h1>
+    <p class="subtitle">Les tendances, nouveautés et annonces du secteur</p>
+  </div>
+
+  <div class="card-grid" style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; padding: 30px 20px;">
+
+  <a href="{{ url_for('news_article', slug='creez-objet-3d-avec-ia') }}" class="card" style="flex: 1 1 300px; max-width: 320px; text-decoration: none; color: inherit;">
+    <img src="{{ url_for('static', filename='images/ia-3d.jpg') }}" alt="Créer un objet 3D avec l’IA" style="width: 100%; height: 200px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px;">
+    <h3 style="margin: 15px 10px 5px; font-size: 1.2rem;">🤖 Créez un objet 3D avec une phrase</h3>
+    <p style="padding: 0 15px 20px; font-size: 0.95rem; color: #666;">Un guide accessible pour transformer vos idées en objets imprimables grâce à l’IA.</p>
+  </a>
+
+</div>
+
+{% endblock %}

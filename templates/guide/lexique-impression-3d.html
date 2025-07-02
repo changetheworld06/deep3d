@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="{{ url_for('static', filename='images/lexique.jpg') }}" alt="Lexique impression 3D" style="max-width: 50%; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+</div>
+
+<style>
+.article-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: #333;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.article-container h1, .article-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.article-container h2 {
+  font-size: 1.6rem;
+  margin-top: 40px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+.article-container h3 {
+  font-size: 1.2rem;
+  margin-top: 30px;
+  color: #444;
+}
+.article-container p {
+  margin-bottom: 18px;
+}
+.article-container ul {
+  margin: 15px 0 30px 20px;
+}
+.article-container li {
+  margin-bottom: 8px;
+}
+.article-container img.inline-img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+</style>
+
+<div class="article-container">
+  <h1>Le Lexique Essentiel de l’Impression 3D : Votre Guide pour Débuter</h1>
+
+  <p>Bienvenue dans le monde fascinant de l’impression 3D ! Si vous tenez ce guide entre les mains, c’est que vous êtes prêt à transformer des idées numériques en objets physiques. Mais avant de lancer votre première impression, vous allez rencontrer un jargon technique qui peut sembler intimidant.</p>
+  <p>Pas de panique ! Ce lexique est votre compagnon de route. Il a été conçu pour démystifier les termes clés de l’impression 3D. En comprenant ce vocabulaire, vous éviterez les erreurs courantes, vous résoudrez plus facilement les problèmes et, surtout, vous progresserez beaucoup plus vite.</p>
+  <p>Considérez ce guide comme votre première boîte à outils. Prêt à parler couramment l'imprimante 3D ? C'est parti !</p>
+
+  <h2>Le Lexique des Termes Essentiels</h2>
+
+  <h3>1. Nozzle (Buse)</h3>
+  <p>La buse est la petite pièce métallique située à l'extrémité chaude de l'imprimante (la hotend). C'est par son orifice que le plastique fondu (le filament) est déposé couche par couche pour créer votre objet. Pensez-y comme la pointe d'un stylo à colle chaude de haute précision.</p>
+  <p><strong>À retenir</strong> : La buse détermine la finesse des détails de votre impression. Son diamètre est un paramètre crucial.</p>
+  <p><strong>Astuce</strong> : Le diamètre standard est de 0,4 mm, un excellent compromis entre vitesse et détail. Pour des impressions plus rapides mais moins détaillées, vous pouvez utiliser une buse de 0,6 mm. Pour des figurines ultra-détaillées, une buse de 0,2 mm sera plus adaptée. Pensez à la garder propre pour éviter les bouchons !</p>
+
+  <h3>2. Layer height (Hauteur de couche)</h3>
+  <p>C’est l’épaisseur de chaque couche de plastique déposée par l’imprimante. Une hauteur de couche faible (par exemple, 0,1 mm) crée des couches très fines, ce qui donne un objet très lisse et détaillé. En revanche, une hauteur de couche plus élevée (par exemple, 0,3 mm) imprimera l'objet beaucoup plus rapidement, mais les couches seront plus visibles.</p>
+  <p><strong>À retenir</strong> : C'est le principal réglage pour équilibrer la qualité et le temps d'impression.</p>
+  <p><strong>Astuce</strong> : Pour un prototype rapide, utilisez une hauteur de couche de 0,28 mm ou 0,3 mm. Pour une pièce d'exposition ou une figurine, descendez à 0,12 mm ou même 0,08 mm. La valeur la plus courante et polyvalente est 0,2 mm.</p>
+
+  <h3>3. Brim (Bordure)</h3>
+  <p>Le brim est une série de lignes de plastique imprimées autour de la base de votre objet, directement connectées à celui-ci. Son unique fonction est d'augmenter la surface de contact avec le plateau pour améliorer l'adhérence et éviter que les coins de la pièce ne se décollent pendant l'impression.</p>
+  <p><strong>À retenir</strong> : Une aide simple et efficace pour lutter contre le décollement (warping).</p>
+  <p><strong>Astuce</strong> : Activez le brim dans votre slicer pour les pièces hautes et fines ou celles avec des coins pointus qui ont tendance à se soulever. Il se retire très facilement à la main ou avec un cutter une fois l'impression terminée.</p>
+
+  <h3>4. Raft (Radeau)</h3>
+  <p>Le raft est une structure complète en plastique imprimée sous votre objet. Il sert de fondation sacrifiable. L'objet est ensuite imprimé par-dessus ce radeau. Il garantit une adhérence parfaite, même sur un plateau inégal ou avec des matériaux difficiles.</p>
+  <p><strong>À retenir</strong> : La solution d'adhérence ultime, mais elle consomme plus de matière et de temps.</p>
+  <p><strong>Astuce</strong> : Utilisez un raft lorsque votre pièce a une surface de contact très faible avec le plateau (par exemple, les pieds d'une figurine) ou lorsque vous imprimez avec des filaments techniques comme l'ABS, qui sont très sujets au warping.</p>
+
+  <h3>5. Extrudeur</h3>
+  <p>C'est le cœur de l'imprimante. Ce mécanisme, composé d'un moteur et d'engrenages, attrape le filament depuis la bobine et le pousse avec précision à travers un tube jusqu'à la buse pour qu'il soit fondu.</p>
+  <p><strong>À retenir</strong> : L'extrudeur contrôle le débit de plastique. Un extrudeur mal calibré est une source fréquente de problèmes.</p>
+  <p><strong>Astuce</strong> : Il est crucial de calibrer les "E-steps" de votre extrudeur. Ce réglage garantit que lorsque vous demandez 100 mm de filament, l'extrudeur pousse exactement 100 mm. Des tutoriels en ligne vous guideront pas à pas pour cette opération essentielle.</p>
+
+  <h3>6. G-code</h3>
+  <p>Le G-code est le langage de programmation qui donne des ordres à l'imprimante 3D. C'est un fichier texte contenant une longue liste d'instructions comme : "va à la coordonnée X,Y", "chauffe la buse à 200°C", "extrude 5 mm de filament", etc. C'est le résultat final du travail du slicer.</p>
+  <p><strong>À retenir</strong> : Le G-code est le fichier que vous mettez sur la carte SD ou que vous envoyez à votre imprimante pour lancer l'impression.</p>
+  <p><strong>Astuce</strong> : Vous n'aurez presque jamais besoin d'écrire du G-code à la main. Cependant, savoir ce que c'est vous aide à comprendre comment le slicer transforme votre modèle 3D en mouvements réels de la machine.</p>
+
+  <h3>7. Slicer (Trancheur)</h3>
+  <p>Le slicer est un logiciel indispensable qui fait le pont entre votre modèle 3D (souvent un fichier .STL ou .3MF) et votre imprimante. Il "tranche" virtuellement votre modèle en centaines ou milliers de couches horizontales et génère le fichier G-code correspondant, en intégrant tous vos réglages (hauteur de couche, vitesse, température, brim, etc.).</p>
+  <p><strong>À retenir</strong> : Le slicer est votre poste de pilotage. La qualité de vos impressions dépend à 80% des réglages que vous y ferez.</p>
+  <p><strong>Astuce</strong> : Les slicers les plus populaires sont gratuits : Ultimaker Cura et PrusaSlicer. Prenez le temps d'explorer leurs réglages de base, puis progressez vers les paramètres avancés. C'est là que la magie opère !</p>
+
+  <h3>8. Plateau (Bed)</h3>
+  <p>C'est la surface plane sur laquelle votre objet est construit. La première couche doit adhérer parfaitement au plateau pour que le reste de l'impression réussisse. La plupart des plateaux modernes sont chauffants pour améliorer cette adhérence.</p>
+  <p><strong>À retenir</strong> : Un plateau propre et bien nivelé est la base d'une impression réussie.</p>
+  <p><strong>Astuce</strong> : Le "nivellement du plateau" (bed leveling) est la première compétence à maîtriser. Il s'agit de s'assurer que la distance entre la buse et le plateau est identique en tout point. Une feuille de papier standard est l'outil parfait pour vérifier cet espacement.</p>
+
+  <h3>9. Warping (Gauchissement)</h3>
+  <p>Le warping est ce phénomène frustrant où les coins ou les bords de votre impression se décollent du plateau et se recourbent vers le haut. Il est causé par le retrait du plastique lorsqu'il refroidit de manière inégale.</p>
+  <p><strong>À retenir</strong> : Le warping est le résultat d'un refroidissement trop rapide et/ou d'une mauvaise adhérence.</p>
+  <p><strong>Astuce</strong> : Pour combattre le warping :</p>
+  <ul>
+    <li>Utilisez un plateau chauffant (environ 60°C pour le PLA).</li>
+    <li>Ajoutez un brim ou un raft.</li>
+    <li>Nettoyez bien votre plateau (alcool isopropylique).</li>
+    <li>Évitez les courants d'air froids près de l'imprimante.</li>
+  </ul>
+
+  <h3>10. Filament</h3>
+  <p>Le filament est la matière première de l'impression 3D FDM (dépôt de fil fondu). Il se présente sous forme d'un long fil de plastique enroulé sur une bobine. Il existe de nombreux types de filaments, chacun avec ses propres propriétés.</p>
+  <p><strong>À retenir</strong> : Le choix du filament dépend de l'application de votre objet (décoratif, mécanique, flexible...).</p>
+  <p><strong>Astuce pour débutants</strong> : Commencez avec le PLA (Acide Polylactique). Il est facile à imprimer, non toxique, biodégradable et ne nécessite pas forcément un plateau chauffant. Une fois à l'aise, vous pourrez explorer le PETG (plus résistant et durable) ou l'ABS (très solide mais plus technique à imprimer).</p>
+
+  <h2>Conclusion : Vous avez les clés en main !</h2>
+  <p>Félicitations ! Vous venez de faire un grand pas dans la compréhension de l'impression 3D. Ce vocabulaire est la base qui vous permettra de suivre des tutoriels, de participer à des discussions sur des forums et, surtout, de diagnostiquer et d'améliorer vos propres impressions.</p>
+  <p>Gardez ce lexique à portée de main. N'ayez pas peur d'expérimenter avec les réglages de votre slicer. Chaque impression, même ratée, est une occasion d'apprendre.</p>
+
+  <h3>Pour aller plus loin</h3>
+  <ul>
+    <li><strong>Logiciels Slicers</strong> : Ultimaker Cura, PrusaSlicer</li>
+    <li><strong>Communautés francophones</strong> : Le forum <a href="https://www.lesimprimantes3d.fr/forum">LesImprimantes3D.fr</a> est une mine d'or pour poser des questions et partager vos créations.</li>
+    <li><strong>Plateformes de modèles 3D</strong> : <a href="https://printables.com">Printables.com</a>, <a href="https://thingiverse.com">Thingiverse.com</a></li>
+    <li><strong>Tutoriels Vidéo</strong> : YouTube regorge de chaînes dédiées. Cherchez "tutoriel impression 3D débutant" pour trouver des guides visuels.</li>
+  </ul>
+
+  <p>Bonnes impressions !</p>
+</div>
+{% endblock %}

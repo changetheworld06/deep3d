@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: auto; padding: 2rem; font-family: sans-serif;">
+
+  <!-- Titre -->
+  <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">
+    🚀 La Fusée de Tintin
+  </h1>
+
+  <!-- Image -->
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <img src="{{ url_for('static', filename='images/fusee-tintin.jpg') }}"
+         alt="Fusée Tintin"
+         style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <!-- Texte sur la fusée -->
+  <div style="font-size: 1.2rem; line-height: 1.8;">
+    <p class="tintin-text">
+      La fusée de Tintin est devenue l’un des symboles les plus emblématiques de la bande dessinée franco-belge.
+      Imaginée par Hergé dans les albums <strong>Objectif Lune</strong> et <strong>On a marché sur la Lune</strong>, elle incarne un rêve d’exploration spatiale
+      à la fois futuriste et poétique, tel qu’on pouvait l’imaginer dans les années 1950.
+    </p>
+    <p>
+      Sa forme effilée et sa célèbre livrée rouge et blanche à damier en ont fait une icône graphique intemporelle.
+      Plus qu’un simple véhicule spatial, cette fusée est le témoin d’un âge d’or de l’aventure, de la curiosité scientifique et de l’imagination sans limite.
+    </p>
+    <p>
+      Aujourd’hui encore, elle est instantanément reconnaissable, que ce soit dans les musées, les illustrations, les produits dérivés ou les collections privées.
+      Elle incarne à elle seule tout l’univers de Tintin : élégant, inventif et profondément humain.
+    </p>
+    <p>
+        Sa forme effilée et sa célèbre livrée rouge et blanche à damier en ont fait une icône graphique intemporelle.
+        Plus qu’un simple véhicule spatial, cette fusée est le témoin d’un âge d’or de l’aventure, de la curiosité scientifique et de l’imagination sans limite.
+        Elle occupe une place centrale dans l’univers de <a href="https://www.tintin.com/fr" target="_blank" style="color: #007BFF; text-decoration: underline;">Tintin</a>, encore célébré aujourd’hui à travers le monde.
+      </p>
+  </div>
+
+  <!-- Lien vers Cults -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="https://cults3d.com/fr/mod%C3%A8le-3d/jeu/fusee-tintin-tinin-rocket" target="_blank"
+       style="display: inline-block; background: #ff5252; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-size: 1.2rem;">
+      📥 Voir le modèle 3D sur Cults3D
+    </a>
+  </div>
+
+</div>
+{% endblock %}

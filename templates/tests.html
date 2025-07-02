@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Actualité de l’Impression 3D</h1>
+    <p class="subtitle">Les tendances, nouveautés et annonces du secteur</p>
+</div>
+
+<div class="card-grid" style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; padding: 30px 20px;">
+
+    <a href="{{ url_for('test_article', slug='la-bambu-lab-a1-mini') }}" class="card">
+    <img src="{{ url_for('static', filename='images/bambulaba1mini.jpg') }}" alt="Bambu Lab A1 Mini" style="width: 100%; height: 200px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px;">
+    <h3 style="margin: 15px 10px 5px; font-size: 1.2rem;">⚡ Bambu Lab A1 Mini : la révolution ?</h3>
+    <p style="padding: 0 15px 20px; font-size: 0.95rem; color: #666;">Une imprimante rapide, simple et intelligente : test complet pour débutants.</p>
+  </a>
+
+  <a href="{{ url_for('test_article', slug='crealityk1c') }}" class="card">
+    <img src="{{ url_for('static', filename='images/crealityk1c.jpg') }}" alt="Bambu Lab A1 Mini" style="width: 100%; height: 200px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px;">
+    <h3 style="margin: 15px 10px 5px; font-size: 1.2rem;">La Creality K1C est-elle la Nouvelle Référence pour les Makers Exigeants ?</h3>
+    <p style="padding: 0 15px 20px; font-size: 0.95rem; color: #666;">La Creality K1C n'est pas une simple mise à jour, c'est une machine qui a trouvé sa cible. : test complet pour débutants.</p>
+  </a>
+
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: auto; padding: 2rem; font-family: sans-serif;">
+
+  <!-- Titre -->
+  <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">
+    🐢 Porte-livres Tortue par Seletti
+  </h1>
+
+  <!-- Image -->
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <img src="{{ url_for('static', filename='images/portelivretortue.webp') }}"
+         alt="Porte-livres Tortue 3D"
+         style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <!-- Texte -->
+  <div style="font-size: 1.2rem; line-height: 1.8;">
+    <p>
+      Inspiré du design iconique de <strong>Seletti</strong>, ce porte-livres en forme de tortue apporte une touche décalée et artistique à n’importe quelle bibliothèque ou bureau.
+      Reproduit fidèlement pour être imprimé en 3D, il associe l’humour à la praticité, tout en faisant référence à une pièce design souvent vendue à prix élevé.
+    </p>
+
+    <p>
+      Ce modèle a été conçu pour être imprimé en plusieurs parties, facilement assemblables, et adapté à la majorité des imprimantes FDM classiques. Le niveau de détail est élevé, ce qui en fait une impression idéale pour impressionner… ou simplement ranger ses livres avec style.
+    </p>
+
+    <p>
+      Parfait pour les passionnés de décoration, de design ou d’objets insolites, ce projet est une excellente manière de joindre l’utile à l’esthétique.
+    </p>
+  </div>
+
+  <!-- Bouton -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="https://cults3d.com/fr/mod%C3%A8le-3d/maison/seletti-turtle-carry-bookcase-high-quality"
+       target="_blank"
+       style="display: inline-block; background: #22c55e; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-size: 1.2rem;">
+      📥 Télécharger le modèle sur Cults3D
+    </a>
+  </div>
+
+</div>
+{% endblock %}

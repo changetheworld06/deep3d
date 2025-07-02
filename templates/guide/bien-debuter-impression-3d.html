@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="{{ url_for('static', filename='images/debuter.jpg') }}" alt="Bien débuter impression 3D" style="max-width: 50%; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+</div>
+<style>
+  .article-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    color: #333;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .article-container h1, .article-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .article-container h2 {
+    font-size: 1.6rem;
+    margin-top: 40px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+  }
+
+  .article-container h3 {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    color: #444;
+  }
+
+  .article-container p {
+    margin-bottom: 18px;
+  }
+
+  .article-container ul {
+    margin: 15px 0 30px 20px;
+  }
+
+  .article-container li {
+    margin-bottom: 8px;
+  }
+
+  .article-container blockquote {
+    background: #f9f9f9;
+    border-left: 4px solid #ccc;
+    padding: 10px 15px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #555;
+  }
+
+  .article-container img {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .highlight {
+    background: #fffae5;
+    border-left: 5px solid #fcbf49;
+    padding: 10px 15px;
+    margin: 20px 0;
+  }
+</style>
+<div class="article-container">
+  <h1>Bien débuter en impression 3D : Le guide complet pour votre première création</h1>
+  <p class="subtitle">Le super-pouvoir de créer est à votre portée</p>
+
+  <p>Vous avez toujours rêvé de transformer une idée numérique en un objet bien réel, que vous pouvez tenir dans vos mains ? De réparer vous-même la pièce cassée d'un appareil, de créer un cadeau unique ou de fabriquer des objets sur-mesure ? Bonne nouvelle : ce n'est plus de la science-fiction. L'impression 3D, autrefois réservée aux industriels, est aujourd'hui une technologie incroyablement accessible.</p>
+
+  <p>Oubliez les préjugés techniques ! Avec le bon matériel et quelques conseils, n'importe qui peut se lancer. Ce guide est conçu pour vous accompagner pas à pas, de l'ouverture du carton à l'émerveillement de votre première impression réussie. Prêt à devenir un "maker" ?</p>
+
+  <h2>Étape 1 : Choisir le bon équipement pour commencer</h2>
+  <p>Le choix de l'imprimante est crucial, mais pas de panique ! Voici les critères essentiels et quelques recommandations pour ne pas vous tromper.</p>
+
+  <h3>Comment choisir son imprimante 3D ?</h3>
+  <ul>
+    <li><strong>Facilité de montage et de calibration</strong> : Optez pour un modèle pré-assemblé ou avec un système de calibration automatique.</li>
+    <li><strong>Taille du plateau</strong> : Un plateau standard de 20x20 cm est largement suffisant pour la plupart des projets.</li>
+    <li><strong>Communauté et support</strong> : Une marque populaire garantit une abondance de tutoriels et une communauté active pour vous aider.</li>
+    <li><strong>Budget</strong> : On trouve d'excellentes imprimantes pour débutants entre 200 € et 500 €.</li>
+  </ul>
+
+  <h3>Notre sélection pour débutants :</h3>
+  <ul>
+    <li><strong>Bambu Lab A1 Mini</strong> : La nouvelle référence en matière de simplicité.</li>
+    <li><strong>Prusa i3 MK3S+ / Prusa MINI+</strong> : Une valeur sûre, fiable et soutenue par une immense communauté.</li>
+    <li><strong>Creality Ender 3 V3 SE</strong> : Excellent rapport qualité-prix pour les plus bricoleurs.</li>
+  </ul>
+
+  <h3>Le filament : votre "encre" 3D</h3>
+  <p><strong>Le PLA</strong> est le filament du débutant par excellence : facile à imprimer, non toxique, biodégradable et disponible dans de nombreuses couleurs.</p>
+  <a href="https://www.amazon.fr/Creality-Ender-PLA-Value-Pack-Blanc/dp/B0BY25RJLH?tag=deep3d-21&linkCode=ll1" target="_blank" rel="noopener noreferrer">
+    Acheter le filament PLA Creality (Blanc & noir) sur Amazon
+  </a>
+  <p><em>Astuce du Maker</em> : Pas besoin d'acheter une bobine trop chère, créality est une super marque et super abordable.</p>
+
+  <h2>Étape 2 : Les 4 phases clés de votre première impression</h2>
+  <h3>1. Obtenir ou créer un modèle 3D</h3>
+  <ul>
+    Télécharger un modèle existant (le plus simple) : Des millions de modèles gratuits sont disponibles sur des plateformes comme 
+    <a href="https://www.printables.com/" target="_blank" rel="noopener"><strong>Printables</strong></a>, 
+    <a href="https://www.thingiverse.com/" target="_blank" rel="noopener"><strong>Thingiverse</strong></a> ou 
+    <a href="https://cults3d.com/" target="_blank" rel="noopener"><strong>Cults3D</strong></a>. Pour un premier test, cherchez "3DBenchy", un petit bateau conçu pour tester votre imprimante.
+    <a href="https://www.tinkercad.com/" target="_blank" rel="noopener"><strong>Tinkercad</strong></a> est un excellent point de départ, gratuit et fonctionnant dans votre navigateur.
+  </ul>
+
+  <h3>2. Préparer l'impression (le "slicing")</h3>
+  <p>
+    Utilisez 
+    <strong><a href="https://ultimaker.com/software/ultimaker-cura/" target="_blank" rel="noopener">Cura</a></strong>, 
+    <strong><a href="https://www.prusa3d.com/fr/page/prusaslicer_424/" target="_blank" rel="noopener">PrusaSlicer</a></strong> ou 
+    <strong><a href="https://bambulab.com/fr-fr/download/studio" target="_blank" rel="noopener">Bambu Studio</a></strong> 
+    pour convertir votre STL en fichier G-code.
+  </p>
+  <p>Importez le fichier STL, sélectionnez un profil standard, générez le G-code. Ne modifiez pas les réglages avancés au début !</p>
+
+  <h3>3. Le grand moment : lancer l'impression</h3>
+  <p>Chargez le filament, lancez l'impression et surveillez <strong>la première couche</strong> : elle est essentielle !</p>
+
+  <h3>4. Post-traitement et maintenance</h3>
+  <ul>
+    <li><strong>Retrait</strong> : Attendez que le plateau refroidisse.</li>
+    <li><strong>Nettoyage</strong> : Retirez les supports avec une pince.</li>
+    <li><strong>Entretien</strong> : Nettoyez le plateau, vérifiez la buse.</li>
+  </ul>
+
+  <h2>Conseils pratiques pour ne pas se décourager</h2>
+  <h3>Erreurs courantes</h3>
+  <ul>
+    <li><strong>Warping</strong> : recalibrez le plateau, nettoyez-le.</li>
+    <li><strong>Couches moches/décalées</strong> : vérifiez la tension des courroies, baissez la vitesse.</li>
+    <li><strong>Filament bouché</strong> : température trop basse ou filament de mauvaise qualité.</li>
+  </ul>
+  <p><strong>À éviter</strong> : Ne jamais lancer une impression longue sans vérifier la première couche !</p>
+
+  <h2>Ressources pour progresser</h2>
+  <ul>
+    Forums : <a href="https://www.lesimprimantes3d.fr/forum/" target="_blank" rel="noopener"><strong>Le forum LesImprimantes3D.fr</strong></a> est une mine d'or d'entraide en français.
+    <li><strong>YouTube</strong> : Tutos en français selon votre modèle</li>
+    <li><strong>Sites</strong> : All3DP, Le Guide de l'Imprimante 3D</li>
+  </ul>
+
+  <h2>Conclusion : L'aventure ne fait que commencer !</h2>
+  <p>Félicitations ! Vous avez toutes les clés pour vous lancer. Acceptez les échecs, soyez curieux, et surtout... imprimez !</p>
+  <p>Partagez vos premières créations en commentaire et rejoignez la communauté des makers !</p>
+</div>
+{% endblock %}

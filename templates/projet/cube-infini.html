@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: auto; padding: 2rem; font-family: sans-serif;">
+
+  <!-- Titre -->
+  <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">
+    🔄 Cube Infini à Imprimer
+  </h1>
+
+  <!-- Image -->
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <img src="{{ url_for('static', filename='images/cube-infini.jpg') }}"
+         alt="Cube Infini imprimé en 3D"
+         style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  </div>
+
+  <!-- Texte sur le projet -->
+  <div style="font-size: 1.2rem; line-height: 1.8;">
+    <p>
+      Ce cube infini, aussi appelé <strong>Infinity Cube</strong>, est un objet fascinant aussi bien visuellement qu’à manipuler.
+      Il se compose de petits cubes articulés permettant un mouvement rotatif continu.
+    </p>
+    <p>
+      Imprimable en plusieurs parties, il est simple à assembler sans colle, à condition d’avoir un bon calibrage de ton imprimante.
+      C’est un excellent modèle pour se relaxer, occuper ses mains ou impressionner ses proches !
+    </p>
+    <p>
+      Que ce soit comme <strong>anti-stress</strong>, comme objet déco ou comme fidget toy, ce cube devient vite un indispensable sur un bureau.
+    </p>
+  </div>
+
+  <!-- Lien vers Cults3D -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="https://cults3d.com/fr/mod%C3%A8le-3d/maison/cube-infini-infinity-cube" target="_blank"
+       style="display: inline-block; background: #3b82f6; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 6px; font-size: 1.2rem;">
+      🔗 Télécharger le modèle sur Cults3D
+    </a>
+  </div>
+
+</div>
+{% endblock %}
