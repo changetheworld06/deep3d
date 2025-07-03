@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title %}Test & Analyse : La Bambu Lab P1S Combo{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+    <img src="{{ url_for('static', filename='images/bambulabp1scombo.jpg') }}" alt="Bien débuter impression 3D" style="max-width: 50%; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  </div>
+<div class="article-container" style="max-width: 800px; margin: auto; padding: 40px 20px;">
+<article class="test-analyse">
+    <h1>Test & Analyse : La Bambu Lab P1S Combo est-elle la Révolution Multi-Couleurs que Tous les Makers Attendaient ?</h1>
+
+    <p>Depuis son arrivée fracassante sur le marché, Bambu Lab a redéfini les standards de l'impression 3D grand public. Fini le temps où rapidité, fiabilité et simplicité étaient des objectifs contradictoires. Avec la P1S Combo, la marque ne se contente pas de confirmer son savoir-faire : elle vise à démocratiser ce qui était jusqu'alors le Graal des makers : l'impression multi-couleurs simple et performante.</p>
+
+    <p>Au cœur de cette promesse se trouve l'AMS (Automatic Material System), un boîtier intelligent qui transforme une imprimante déjà excellente en une véritable usine de production créative. Alors, la P1S Combo est-elle vraiment la solution "plug and play" ultime pour passer à la vitesse supérieure ? Plongeons dans le test.</p>
+
+    <figure>
+        <img src="/static/images/p1s-combo-overview.jpg" alt="Vue d'ensemble de la Bambu Lab P1S Combo" />
+        <figcaption>Vue d'ensemble de la Bambu Lab P1S Combo, montrant l'imprimante fermée avec l'unité AMS posée sur le dessus, et des bobines de filament de différentes couleurs visibles à l'intérieur.</figcaption>
+    </figure>
+
+    <h2>L'Essentiel en un Coup d'Œil : Fiche Technique</h2>
+
+    <table>
+        <thead>
+            <tr><th>Caractéristique</th><th>Spécification</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Technologie</td><td>FDM - CoreXY</td></tr>
+            <tr><td>Volume d'impression</td><td>256 x 256 x 256 mm</td></tr>
+            <tr><td>Système multi-matériaux</td><td>AMS (4 bobines par unité, jusqu'à 4 AMS)</td></tr>
+            <tr><td>Vitesse max</td><td>500 mm/s (accélération 20 000 mm/s²)</td></tr>
+            <tr><td>Structure</td><td>Enceinte fermée avec filtration à charbon</td></tr>
+            <tr><td>Extrudeur</td><td>Direct Drive avec engrenages en métal</td></tr>
+            <tr><td>Température max buse</td><td>300°C</td></tr>
+            <tr><td>Température max plateau</td><td>100°C</td></tr>
+            <tr><td>Nivellement</td><td>Entièrement automatique (mains-libres)</td></tr>
+            <tr><td>Fonctions intelligentes</td><td>Caméra intégrée (surveillance, timelapse)</td></tr>
+            <tr><td>Connectivité</td><td>Wi-Fi, Micro SD, Bambu Studio / Handy</td></tr>
+            <tr><td>Logiciel</td><td>Bambu Studio (basé sur PrusaSlicer)</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Les Points Forts : Pourquoi la P1S Combo Séduit-elle ?</h2>
+
+    <h3>1. L'Impression Multi-Couleurs Enfin Accessible</h3>
+    <p>C'est l'argument massue. L'AMS gère jusqu'à 4 bobines de filament (couleurs ou matériaux différents) de manière totalement autonome. Il détecte le type de filament, change de couleur en cours d'impression et vous alerte quand une bobine est vide. Combinez jusqu'à 4 unités AMS pour imprimer avec 16 couleurs/matériaux simultanément.</p>
+    <p>Pour vous, ça veut dire : réaliser des modèles colorés, utiliser un filament soluble pour les supports, ou combiner PLA et TPU dans une même pièce, le tout avec une simplicité déconcertante.</p>
+
+    <figure>
+        <img src="/static/images/impression-multicouleurs.jpg" alt="Objet imprimé en 4 couleurs" />
+        <figcaption>Un objet complexe imprimé en 4 couleurs différentes, montrant la netteté des changements de couleur.</figcaption>
+    </figure>
+
+    <p><strong>À retenir :</strong> L'AMS est plus qu'un accessoire, c'est le cœur de l'expérience "Combo". Il transforme l'imprimante en un outil de création bien plus puissant qu'une machine mono-couleur.</p>
+
+    <h3>2. Une Expérience "Plug and Play" Inégalée</h3>
+    <p>Bambu Lab a une obsession : la simplicité. La P1S est prête à imprimer en 15 minutes chrono après le déballage. La calibration est entièrement automatisée : nivellement du plateau, compensation des vibrations (input shaping), tout est géré par la machine. Vous lancez l'impression depuis votre ordinateur ou votre smartphone, et ça fonctionne.</p>
+
+    <h3>3. Une Vitesse et une Qualité Stupéfiantes</h3>
+    <p>Grâce à son architecture CoreXY et à ses algorithmes de compensation, la P1S imprime à des vitesses vertigineuses (jusqu'à 500 mm/s) tout en maintenant une qualité de surface bluffante. Les impressions qui prenaient une journée entière se terminent désormais en quelques heures, sans compromis sur le rendu final.</p>
+
+    <h3>4. Un Écosystème Matériel et Logiciel Parfaitement Intégré</h3>
+    <p>Le slicer Bambu Studio et l'application mobile Bambu Handy sont conçus pour fonctionner en parfaite harmonie avec la machine. L'interface est claire, la préparation des modèles multi-couleurs est intuitive ("peindre" les couleurs sur le modèle) et la surveillance à distance via la caméra intégrée est un vrai confort.</p>
+
+    <h2>Limites et Points de Vigilance : Ce qu'il Faut Savoir Avant d'Acheter</h2>
+
+    <h3>1. Le Bruit et l'Encombrement</h3>
+    <p>Une machine aussi rapide et mécanique est forcément bruyante. Les ventilateurs tournent à plein régime et l'AMS ajoute ses propres bruits lors des changements de filament. Ce n'est pas une imprimante à mettre dans une chambre ou un salon. De plus, avec l'AMS sur le dessus, la machine est haute et lourde (plus de 21 kg), prévoyez un espace stable et dédié.</p>
+
+    <h3>2. La Gestion des Déchets de Filament</h3>
+    <p>L'impression multi-couleurs a un coût : le gaspillage. À chaque changement de couleur, l'imprimante doit purger l'ancien filament pour ne pas mélanger les teintes. Elle crée pour cela une "tour de purge" à côté de l'objet et éjecte des petits "cacas" de filament (poops) par une goulotte à l'arrière. Cela peut représenter une quantité non négligeable de plastique sur de longues impressions.</p>
+
+    <figure>
+        <img src="/static/images/tour-de-purge.jpg" alt="Tour de purge et poops de filament" />
+        <figcaption>Gros plan sur la "tour de purge" à côté d'une impression, et un petit tas de "poops" de filament colorés.</figcaption>
+    </figure>
+
+    <p><strong>À surveiller :</strong> Le coût du gaspillage n'est pas neutre. Bambu Studio propose des options pour l'optimiser (ex: purger dans le remplissage de l'objet), mais il restera toujours une perte de matière inhérente au processus.</p>
+
+    <h3>3. Pas Conçue pour les Filaments Abrasifs</h3>
+    <p>La P1S est livrée avec une buse et un extrudeur en acier inoxydable. C'est parfait pour la majorité des filaments (PLA, PETG, ABS, TPU...), mais déconseillé pour les filaments chargés en fibres de carbone ou de verre. Ces matériaux abrasifs useraient rapidement les composants. Pour cela, il faudra opter pour la X1-Carbon ou prévoir une mise à niveau manuelle (buse + engrenages en acier trempé).</p>
+
+    <h2>Face à la Concurrence : Une Proposition Unique</h2>
+    <ul>
+        <li><strong>vs. Creality K1C</strong> : La K1C est moins chère et prête d'origine pour les filaments carbone. Cependant, elle n'offre aucune solution intégrée pour le multi-couleurs. Le choix est simple : polyvalence des matériaux pour la K1C, polyvalence des couleurs pour la P1S.</li>
+        <li><strong>vs. Bambu Lab X1-Carbon</strong> : La X1C est le modèle premium avec un écran tactile supérieur, des composants en acier trempé d'origine et un Lidar pour une calibration encore plus fine. La P1S offre 90 % des performances pour un prix bien plus attractif, ce qui en fait le meilleur rapport qualité/prix de la gamme.</li>
+        <li><strong>vs. Prusa MK4 (+ MMU3)</strong> : Prusa défend une philosophie open-source et une machine plus silencieuse et réparable. Cependant, l'écosystème P1S + AMS est aujourd'hui plus rapide, plus simple à mettre en œuvre et mieux intégré que la solution MK4 + MMU3.</li>
+    </ul>
+
+    <h2>Verdict : La P1S Combo, pour Qui et pour Quoi Faire ?</h2>
+    <p>La Bambu Lab P1S Combo n'est pas seulement une bonne imprimante, c'est un game-changer qui rend l'impression 3D complexe accessible, amusante et incroyablement efficace.</p>
+
+    <h3>On adore :</h3>
+    <ul>
+        <li>✅ L'écosystème multi-couleurs AMS, simple et puissant.</li>
+        <li>✅ La philosophie "plug and play" qui fonctionne vraiment.</li>
+        <li>✅ Le rapport vitesse/qualité exceptionnel.</li>
+        <li>✅ L'intégration logicielle et matérielle sans faille.</li>
+        <li>✅ L'enceinte fermée qui ouvre la porte aux filaments techniques.</li>
+    </ul>
+
+    <h3>On fait attention :</h3>
+    <ul>
+        <li>❌ Le bruit de fonctionnement élevé.</li>
+        <li>❌ Le gaspillage de filament inhérent au multi-couleurs.</li>
+        <li>❌ Non optimisée pour les filaments abrasifs sans mise à niveau.</li>
+        <li>❌ L'encombrement général de l'ensemble.</li>
+    </ul>
+
+    <p><strong>Au final, la P1S Combo est la solution idéale pour :</strong></p>
+    <ul>
+        <li>Les makers créatifs qui veulent donner vie à des objets colorés sans prise de tête.</li>
+        <li>Les professionnels et designers pour du prototypage rapide et visuellement fidèle.</li>
+        <li>Les débutants exigeants qui veulent une machine qui fonctionne "dès la sortie de boîte" sans des heures de réglages.</li>
+        <li>Ceux qui veulent imprimer des matériaux techniques comme l'ABS ou l'ASA dans un environnement contrôlé.</li>
+    </ul>
+
+    <p>Si votre priorité est d'imprimer des pièces mécaniques en fibre de carbone ou si vous cherchez le silence absolu, passez votre chemin. Pour tous les autres, la Bambu Lab P1S Combo s'impose comme la nouvelle référence de l'impression 3D performante, polyvalente et, surtout, terriblement amusante.</p>
+
+    <p><strong>Vous avez craqué pour la P1S Combo ? Partagez vos plus belles créations multi-couleurs en commentaire !</strong></p>
+    <!-- Section commentaires Utterances -->
+<section style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+    <h2>💬 Commentaires</h2>
+    <script src="https://utteranc.es/client.js"
+            repo="changetheworld06/deep3d"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </section>
+</article>
+{% endblock %}

@@ -3,14 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="{{ url_for('static', filename='js/interactions.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="/" class="logo-link" aria-label="Accueil">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt="Logo Deep3D">
+    </a>
+    <nav class="navbar-links" role="navigation" aria-label="Menu principal">
+      <a href="/">Accueil</a>
+      <a href="/articles">Articles</a>
+      <a href="/impressions">Impressions 3D</a>
+      <a href="/tests">Tests</a>
+      <a href="{{ url_for('news') }}">News</a>
+      <a href="{{ url_for('guide') }}">Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+<footer>
+  <p>&copy; 2025 Deep3D – Tous droits réservés</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/interactions.js') }}" defer></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Charger les likes depuis le serveur
     fetch("/likes")
       .then(res => res.json())
       .then(data => {
@@ -18,75 +44,43 @@
           const projet = btn.dataset.projet;
           const countSpan = btn.querySelector(".like-count");
           countSpan.innerText = data[projet] ?? 0;
-  
-          // Vérifier si l'utilisateur a déjà liké
-          const liked = localStorage.getItem("liked-" + projet) === "true";
-          if (liked) {
+
+          if (localStorage.getItem("liked-" + projet) === "true") {
             btn.classList.add("liked");
           }
+
+          btn.addEventListener("click", () => {
+            const liked = btn.classList.contains("liked");
+            const action = liked ? "unlike" : "like";
+
+            fetch("/like/" + projet, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ action })
+            })
+            .then(res => res.json())
+            .then(data => {
+              countSpan.innerText = data.likes;
+              btn.classList.toggle("liked");
+              localStorage.setItem("liked-" + projet, !liked);
+            });
+          });
         });
       });
-  
-    // Clic sur bouton like
-    document.querySelectorAll(".like-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const projet = btn.dataset.projet;
-        const countSpan = btn.querySelector(".like-count");
-        const liked = btn.classList.contains("liked");
-        const action = liked ? "unlike" : "like";
-  
-        fetch("/like/" + projet, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ action: action })
-        })
-        .then(res => res.json())
-        .then(data => {
-          countSpan.innerText = data.likes;
-          btn.classList.toggle("liked");
-          localStorage.setItem("liked-" + projet, !liked);
-        });
-      });
-    });
-  
-    // Bouton partage
+
     document.querySelectorAll(".share-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const url = btn.dataset.url;
         navigator.clipboard.writeText(url).then(() => {
           btn.textContent = "✅ Lien copié !";
-          setTimeout(() => { btn.textContent = "📤 Partager"; }, 2000);
+          setTimeout(() => {
+            btn.textContent = "📤 Partager";
+          }, 2000);
         });
       });
     });
   });
-  </script>
-
-<body>
-
-  <header>
-    <div class="header-container">
-      <a href="/" class="logo-link">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt="Deep3D">
-      </a>
-      <nav class="navbar-links">
-        <a href="/">Accueil</a>
-        <a href="/articles">Articles</a>
-        <a href="/impressions">Impressions 3D</a>
-        <a href="/tests">Tests</a>
-        <a href="{{ url_for('news') }}">News</a>
-        <a href="{{ url_for('guide') }}">Guide</a>
-      </nav>
-    </div>
-  </header>
-
-<main>
-    {% block content %}{% endblock %}
-</main>
-
-<footer>
-    <p>&copy; 2025 Deep3D – Tous droits réservés</p>
-</footer>
+</script>
 
 </body>
 </html>
