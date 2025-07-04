@@ -1,5 +1,5 @@
 import json
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 
 app = Flask(__name__)
 
@@ -81,6 +81,52 @@ def news():
 @app.route('/guide')
 def guide():
     return render_template('guide.html')
+
+@app.route('/robots.txt')
+def robots_txt():
+    return app.send_static_file('robots.txt')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    base_url = "https://deep3d.fr"
+    pages = [
+        "",  # Accueil
+        "articles",
+        "guide",
+        "test",
+        "news",
+        "projet",
+        "impressions",
+        "tests",
+    ]
+
+    # Ajouter les fichiers HTML dans chaque dossier
+    def get_html_slugs(folder, url_prefix):
+        slugs = []
+        path = os.path.join(app.template_folder, folder)
+        if os.path.exists(path):
+            for f in os.listdir(path):
+                if f.endswith(".html"):
+                    name = f.replace(".html", "")
+                    slugs.append(f"{url_prefix}/{name}")
+        return slugs
+
+    urls = [f"{base_url}/{p}" for p in pages]
+
+    urls += get_html_slugs("articles", f"{base_url}/articles")
+    urls += get_html_slugs("guide", f"{base_url}/guide")
+    urls += get_html_slugs("test", f"{base_url}/test")
+    urls += get_html_slugs("news", f"{base_url}/news")
+    urls += get_html_slugs("projet", f"{base_url}/projet")
+
+    # Génération du XML
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for url in urls:
+        xml += f"  <url>\n    <loc>{url}</loc>\n  </url>\n"
+    xml += '</urlset>'
+
+    return Response(xml, mimetype="application/xml")
 
 if __name__ == "__main__":
     import os

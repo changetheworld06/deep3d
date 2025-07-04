@@ -69,7 +69,45 @@
   .section-link a:hover {
     text-decoration: underline;
   }
+
+  .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
 </style>
+
+<main>
+
+  <section class="home-section" aria-labelledby="a-propos">
+    <div class="page-header">
+      <h2 id="a-propos">📌 À propos de Deep3D</h2>
+      <p class="subtitle">
+        Deep3D est un site francophone dédié à l’univers de l’impression 3D : inspiration, guides, sélections de modèles et actualités du secteur.
+      </p>
+    </div>
+  
+    <div style="max-width: 900px; margin: auto; font-size: 1.05rem; color: #444; line-height: 1.8; text-align: justify; padding: 0 20px;">
+      <p>
+        Le site s’adresse aussi bien aux curieux qui souhaitent découvrir l’impression 3D qu’aux utilisateurs plus expérimentés en quête de modèles à imprimer, de comparatifs de matériel ou de conseils pratiques. 
+      </p>
+      <p>
+        Nous sélectionnons les contenus avec soin, en nous basant sur des tests vérifiés, des retours d’utilisateurs et l’analyse des tendances actuelles. L’objectif est de proposer des informations utiles, accessibles, et inspirantes pour tous les profils.
+      </p>
+      <p>
+        Deep3D fonctionne grâce à un modèle mixte, incluant la publicité et des liens affiliés. Ces partenariats nous permettent de continuer à proposer du contenu librement accessible, tout en garantissant une certaine indépendance éditoriale. Merci de votre soutien !
+      </p>
+      <p>
+        Si vous appréciez notre travail, n’hésitez pas à partager les articles, à nous faire part de vos suggestions ou à rejoindre la communauté autour de l’impression 3D.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION ARTICLES -->
+  <section class="home-section" aria-labelledby="section-articles">
+    ...
+  </section>
 
 <!-- SECTION ARTICLES -->
 <div class="home-section">
@@ -79,7 +117,7 @@
   </div>
   <div class="card-grid">
     <a class="card" href="{{ url_for('article', slug='avenir-impression-3d') }}">
-      <img src="{{ url_for('static', filename='images/avenir-3d.png') }}" alt="Avenir impression 3D">
+      <img src="{{ url_for('static', filename='images/avenir-3d.jpg') }}" alt="Avenir impression 3D">
       <h3>Quel avenir pour l’impression 3D ?</h3>
       <p>10 prédictions fascinantes pour 2035. Le futur s’imprime dès maintenant !</p>
     </a>
@@ -89,6 +127,13 @@
       <h3>Top 10 Lampes à Imprimer</h3>
       <p>Une sélection unique de lampes stylées à imprimer chez soi.</p>
     </a>
+
+    <a class="card" href="{{ url_for('article', slug='impression3d2025') }}">
+      <img src="{{ url_for('static', filename='images/impression3d2025.jpg') }}" alt="Impression 3D 2025">
+      <h3>L’Impression 3D en 2025</h3>
+      <p>Une révolution industrielle en marche : technologies, matériaux et applications concrètes.</p>
+    </a>
+
   </div>
   <div class="card-grid" style="justify-content: center; margin-top: 30px;">
     <a class="card" href="/articles">
@@ -101,7 +146,7 @@
 <!-- SECTION IMPRESSIONS -->
 <div class="home-section">
   <div class="page-header">
-    <h1>Projets 3D à Imprimer</h1>
+    <h2>Projets 3D à Imprimer</h2>
     <p>Découvrez une sélection de modèles 3D à imprimer chez vous ! Ces projets sont créatifs, utiles ou amusants, et accessibles.</p>
   </div>
   <div class="card-grid">
@@ -135,7 +180,7 @@
 <!-- SECTION NEWS -->
 <div class="home-section">
   <div class="page-header">
-    <h1>Actualité de l’Impression 3D</h1>
+    <h2>Actualité de l’Impression 3D</h2>
     <p class="subtitle">Les tendances, nouveautés et annonces du secteur</p>
   </div>
   <div class="home-section">
@@ -160,7 +205,7 @@
 <!-- SECTION TESTS -->
 <div class="home-section">
   <div class="page-header">
-    <h1>Tests & Comparatifs</h1>
+    <h2>Tests & Comparatifs</h2>
     <p class="subtitle">Filaments, imprimantes, accessoires... à la loupe</p>
   </div>
   <div class="card-grid">
@@ -174,6 +219,14 @@
       <img src="{{ url_for('static', filename='images/crealityk1c.jpg') }}" alt="Bambu Lab A1 Mini" style="width: 100%; height: 200px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px;">
       <h3 style="margin: 15px 10px 5px; font-size: 1.2rem;">La Creality K1C est-elle la Nouvelle Référence pour les Makers Exigeants ?</h3>
       <p style="padding: 0 15px 20px; font-size: 0.95rem; color: #666;">La Creality K1C n'est pas une simple mise à jour, c'est une machine qui a trouvé sa cible. : test complet pour débutants.</p>
+    </a>
+
+    <a href="{{ url_for('test_article', slug='bambulabp1scombo') }}" class="card">
+      <img src="{{ url_for('static', filename='images/bambulabp1scombo.jpg') }}" alt="Imprimante 3D Bambu Lab P1S Combo" style="width: 100%; height: 200px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px;">
+      <h3 style="margin: 15px 10px 5px; font-size: 1.2rem;">🧠 Bambu Lab P1S Combo : la machine ultime clé en main ?</h3>
+      <p style="padding: 0 15px 20px; font-size: 0.95rem; color: #666;">
+        Silencieuse, rapide et multi-couleurs avec AMS, la Bambu Lab P1S Combo redéfinit l’expérience utilisateur. Test complet dans notre dossier.
+      </p>
     </a>
 
   </div>

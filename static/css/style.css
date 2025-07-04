@@ -297,3 +297,30 @@ header {
     font-size: 14px;
   }
 }
+
+:root {
+  --navbar-height: 80px;
+}
+
+html {
+  scroll-padding-top: var(--navbar-height);
+}
+
+.home-section {
+  scroll-margin-top: var(--navbar-height);
+}
+
+/* Pour compenser le premier affichage */
+.page-header:first-of-type {
+  margin-top: var(--navbar-height);
+}
+
+.seo-intro {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-size: 1.05rem;
+  color: #444;
+  text-align: center;
+  line-height: 1.7;
+}

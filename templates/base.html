@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>Deep3D – Tests & projets 3D, fichiers STL, guides & inspirations pour makers</title>
+    <meta name="description" content="Deep3D – Tests, projets et inspirations autour de l'impression 3D. Découvrez nos articles, sélections de fichiers STL, et guides pour makers.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="author" content="Deep3D">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="impression 3D, fichiers STL, projets 3D, tests imprimantes, guides makers, Deep3D, DIY, fabrication numérique">
+  
+    <!-- Open Graph pour Facebook & réseaux sociaux -->
+    <meta property="og:title" content="Deep3D – Tests & projets 3D, fichiers STL, guides & inspirations pour makers">
+    <meta property="og:description" content="Découvrez nos tests, projets d'impression 3D, fichiers STL et guides pratiques.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.deep3d.fr/"> <!-- Remplace par ton URL réelle -->
+    <meta property="og:image" content="{{ url_for('static', filename='images/og-image.jpg') }}"> <!-- Image de partage -->
+  
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Deep3D – Tests & projets 3D, fichiers STL, guides & inspirations pour makers">
+    <meta name="twitter:description" content="Tests d'imprimantes 3D, fichiers STL, guides pour makers.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/og-image.jpg') }}">
+  
+    <!-- Favicon et icônes -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}"> <!-- Pour PWA éventuelle -->
+  
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.deep3d.fr/"> <!-- Remplace par ton URL exacte -->
+  
+    <!-- Feuille de style -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LHVQ0VS1FQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LHVQ0VS1FQ');
-</script>
-</head>
+  
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LHVQ0VS1FQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LHVQ0VS1FQ');
+    </script>
+  </head>
 
 <body>
 
