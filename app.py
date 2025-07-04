@@ -1,5 +1,6 @@
 import json
-from flask import Flask, render_template, request, jsonify, Response
+from flask import Flask, render_template, request, jsonify, Response, send_from_directory
+
 
 app = Flask(__name__)
 
@@ -83,8 +84,8 @@ def guide():
     return render_template('guide.html')
 
 @app.route('/robots.txt')
-def robots_txt():
-    return app.send_static_file('robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
 
 @app.route('/sitemap.xml')
 def sitemap():
