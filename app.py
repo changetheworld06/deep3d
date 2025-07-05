@@ -83,6 +83,10 @@ def news():
 def guide():
     return render_template('guide.html')
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('static/images', 'favicon.ico')
+
 @app.route('/robots.txt')
 def robots():
     return send_from_directory('static', 'robots.txt')
