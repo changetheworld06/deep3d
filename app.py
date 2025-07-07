@@ -17,6 +17,23 @@ def save_likes(likes):
     with open(LIKES_FILE, "w") as f:
         json.dump(likes, f)
 
+@app.after_request
+def add_security_headers(response):
+    response.headers['Content-Security-Policy'] = (
+        "default-src 'self'; "
+        "img-src 'self' data: https:; "
+        "script-src 'self' https://pagead2.googlesyndication.com https://www.googletagmanager.com; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "font-src 'self' https://fonts.gstatic.com; "
+        "connect-src 'self';"
+    )
+    response.headers['Strict-Transport-Security'] = "max-age=31536000; includeSubDomains"
+    response.headers['X-Content-Type-Options'] = "nosniff"
+    response.headers['X-Frame-Options'] = "DENY"
+    response.headers['Referrer-Policy'] = "no-referrer"
+    response.headers['Permissions-Policy'] = "geolocation=(), microphone=(), camera=()"
+    return response
+
 @app.route("/like/<projet_id>", methods=["POST"])
 def like(projet_id):
     likes = load_likes()
