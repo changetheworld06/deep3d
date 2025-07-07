@@ -102,6 +102,14 @@ def news():
 def guide():
     return render_template('guide.html')
 
+@app.route("/mentions-legales")
+def mentions_legales():
+    return render_template("mentions-legales.html")
+
+@app.route("/confidentialite")
+def politique_confidentialite():
+    return render_template("confidentialite.html")
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory('static/images', 'favicon.ico')
