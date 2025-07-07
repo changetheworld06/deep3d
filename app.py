@@ -22,10 +22,11 @@ def add_security_headers(response):
     response.headers['Content-Security-Policy'] = (
         "default-src 'self'; "
         "img-src 'self' data: https:; "
-        "script-src 'self' https://pagead2.googlesyndication.com https://www.googletagmanager.com; "
-        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://cdn.jsdelivr.net; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; "
         "font-src 'self' https://fonts.gstatic.com; "
-        "connect-src 'self';"
+        "frame-src https://*.doubleclick.net https://*.googlesyndication.com; "
+        "connect-src 'self' https://www.google-analytics.com; "
     )
     response.headers['Strict-Transport-Security'] = "max-age=31536000; includeSubDomains"
     response.headers['X-Content-Type-Options'] = "nosniff"
