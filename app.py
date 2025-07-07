@@ -1,8 +1,10 @@
 import json
 from flask import Flask, render_template, request, jsonify, Response, send_from_directory
+import os
+from datetime import datetime
 
-
-app = Flask(__name__)
+# 👉 Ici tu initialises ton app Flask
+app = Flask(__name__, template_folder="templates")
 
 
 LIKES_FILE = "likes.json"
@@ -94,44 +96,56 @@ def robots():
 @app.route('/sitemap.xml')
 def sitemap():
     base_url = "https://deep3d.fr"
-    pages = [
+    today = datetime.utcnow().date().isoformat()
+
+    # Pages principales
+    static_pages = [
         "",  # Accueil
         "articles",
         "guide",
-        "test",
         "news",
-        "projet",
         "impressions",
-        "tests",
+        "tests"
     ]
 
-    # Ajouter les fichiers HTML dans chaque dossier
-    def get_html_slugs(folder, url_prefix):
-        slugs = []
+    # Convertit les pages fixes en URLs complètes avec date
+    urls = [{"loc": f"{base_url}/{page}", "lastmod": today} for page in static_pages]
+
+    # Dictionnaire des dossiers dynamiques et leurs chemins URL
+    dynamic_dirs = {
+        "articles": f"{base_url}/articles",
+        "news": f"{base_url}/news",
+        "guide": f"{base_url}/guide",
+        "test": f"{base_url}/test",
+        "projet": f"{base_url}/projet"
+    }
+
+    # Ajoute les fichiers HTML dynamiques comme pages individuelles
+    for folder, url_prefix in dynamic_dirs.items():
         path = os.path.join(app.template_folder, folder)
         if os.path.exists(path):
-            for f in os.listdir(path):
-                if f.endswith(".html"):
-                    name = f.replace(".html", "")
-                    slugs.append(f"{url_prefix}/{name}")
-        return slugs
+            for filename in os.listdir(path):
+                if filename.endswith(".html"):
+                    slug = filename.replace(".html", "")
+                    full_url = f"{url_prefix}/{slug}"
+                    urls.append({
+                        "loc": full_url,
+                        "lastmod": today
+                    })
 
-    urls = [f"{base_url}/{p}" for p in pages]
-
-    urls += get_html_slugs("articles", f"{base_url}/articles")
-    urls += get_html_slugs("guide", f"{base_url}/guide")
-    urls += get_html_slugs("test", f"{base_url}/test")
-    urls += get_html_slugs("news", f"{base_url}/news")
-    urls += get_html_slugs("projet", f"{base_url}/projet")
-
-    # Génération du XML
+    # Génère le sitemap XML
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for url in urls:
-        xml += f"  <url>\n    <loc>{url}</loc>\n  </url>\n"
+
+    for entry in urls:
+        xml += "  <url>\n"
+        xml += f"    <loc>{entry['loc']}</loc>\n"
+        xml += f"    <lastmod>{entry['lastmod']}</lastmod>\n"
+        xml += "  </url>\n"
+
     xml += '</urlset>'
 
-    return Response(xml, mimetype="application/xml")
+    return Response(xml, mimetype='application/xml')
 
 if __name__ == "__main__":
     import os
