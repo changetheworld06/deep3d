@@ -93,6 +93,10 @@ def favicon():
 def robots():
     return send_from_directory('static', 'robots.txt')
 
+@app.route('/ads.txt')
+def ads():
+    return send_from_directory('static', 'ads.txt')
+
 @app.route('/sitemap.xml')
 def sitemap():
     base_url = "https://deep3d.fr"
