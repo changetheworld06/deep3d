@@ -25,6 +25,16 @@
     <meta name="twitter:image" content="{{ url_for('static', filename='images/og-image.jpg') }}">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline' 'unsafe-eval';
+    style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+    font-src https://fonts.gstatic.com;
+    img-src 'self' data: https: https://tpc.googlesyndication.com;
+    connect-src https://www.google-analytics.com https://pagead2.googlesyndication.com;
+    frame-src https://*.doubleclick.net https://*.googlesyndication.com;
+  ">
   
     <!-- Favicon et icônes -->
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
