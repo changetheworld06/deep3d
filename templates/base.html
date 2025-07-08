@@ -38,138 +38,122 @@
     <!-- Feuille de style -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   
-<!-- Bandeau cookie RGPD -->
+<!-- Cookie Consent (RGPD) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://pagead2.googlesyndication.com">
 <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
 
 <style>
-/* Positionnement et style du bandeau */
-.cc-window {
-  max-width: 600px !important;
-  width: 90% !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  position: fixed !important;
-  z-index: 10000 !important;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important;
-  text-align: center;
+  .cc-window {
+    max-width: 600px !important;
+    width: 90% !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    position: fixed !important;
+    z-index: 10000 !important;
+    background-color: rgba(130, 34, 34, 0.5) !important;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important;
+    text-align: center;
+  }
 
-  /* Transparence ajoutée ici */
-  background-color: rgba(130, 34, 34, 0.50) !important; /* noir 85% opaque */
-  backdrop-filter: blur(4px); /* optionnel : effet flouté derrière */
-}
+  .cc-btn.cc-allow {
+    background-color: #f1d600 !important;
+    color: #000 !important;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 5px;
+  }
 
-/* Bouton Accepter */
-.cc-btn.cc-allow {
-  background-color: #f1d600 !important;
-  color: #000 !important;
-  font-weight: bold;
-  padding: 10px 20px !important;
-  border-radius: 4px;
-  margin: 5px;
-}
-
-/* Masquer le vrai bouton Refuser */
-.cc-btn.cc-deny {
-  display: none !important;
-}
-
-/* Lien personnalisé Refuser (discret en haut à droite) */
-.cc-refuser-discret {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  font-size: 0.75em;
-  color: #888;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-/* Lien Modifier mes choix */
-.cc-link {
-  color: #f1d600 !important;
-  text-decoration: underline;
-  cursor: pointer;
-  display: inline-block;
-  margin-top: 10px;
-}
+  .cc-link {
+    color: #f1d600 !important;
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+  }
 </style>
 
 <script>
-window.addEventListener("load", function () {
-  window.cookieconsent.initialise({
-    palette: {
-      popup: { background: "#000" },
-      button: { background: "#f1d600", text: "#000" }
-    },
-    theme: "classic",
-    type: "opt-in",
-    revokable: true,
-    content: {
-      message: "Ce site utilise des cookies pour mesurer l’audience et afficher de la publicité personnalisée.",
-      allow: "Accepter",
-      deny: "", // on masque
-      link: "Modifier mes choix",
-      href: "#"
-    },
-    onInitialise: function (status) {
-      if (status === cookieconsent.status.allow) loadScripts();
-    },
-    onStatusChange: function (status) {
-      if (status === cookieconsent.status.allow) loadScripts();
-    },
-    onPopupOpen: function () {
-      // Injecter le lien discret "Refuser"
-      const popup = document.querySelector('.cc-window');
-      if (popup && !document.querySelector('.cc-refuser-discret')) {
-        const denyLink = document.createElement('div');
-        denyLink.className = 'cc-refuser-discret';
-        denyLink.innerText = 'Refuser les cookies';
-        denyLink.onclick = function () {
-          window.cookieconsent.setStatus('deny');
-          window.cookieconsent.close();
-        };
-        popup.appendChild(denyLink);
-      }
+  window.addEventListener("load", function () {
+    if (!window.cookieconsent) return;
 
-      // "Modifier mes choix"
-      const link = document.querySelector(".cc-link");
-      if (link) {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          window.cookieconsent.showPreferences();
-        });
+    cookieconsent.initialise({
+      palette: {
+        popup: { background: "#000" },
+        button: { background: "#f1d600", text: "#000" }
+      },
+      theme: "classic",
+      type: "opt-in",
+      layout: "basic",
+      content: {
+        message: "Ce site utilise des cookies pour mesurer l’audience et afficher de la publicité personnalisée.",
+        allow: "Accepter",
+        link: "Modifier mes choix",
+        href: "#"
+      },
+
+      onInitialise: function (status) {
+        if (status === cookieconsent.status.allow) loadConsentScripts();
+      },
+
+      onStatusChange: function (status) {
+        if (status === cookieconsent.status.allow) {
+          loadConsentScripts();
+        } else {
+          clearCookies();
+        }
+      },
+
+      onPopupOpen: function () {
+        const popup = document.querySelector(".cc-window");
+        if (popup) {
+          popup.setAttribute("role", "dialog");
+          popup.setAttribute("aria-modal", "true");
+        }
+
+        const link = document.querySelector(".cc-link");
+        if (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            cookieconsent.show();
+          });
+        }
       }
+    });
+
+    function loadConsentScripts() {
+      // Google Analytics
+      const ga = document.createElement("script");
+      ga.src = "https://www.googletagmanager.com/gtag/js?id=G-LHVQ0VS1FQ";
+      ga.async = true;
+      document.head.appendChild(ga);
+
+      const gtag = document.createElement("script");
+      gtag.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LHVQ0VS1FQ');
+      `;
+      document.head.appendChild(gtag);
+
+      // Google AdSense
+      const ads = document.createElement("script");
+      ads.async = true;
+      ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161270640127476";
+      ads.crossOrigin = "anonymous";
+      document.head.appendChild(ads);
+    }
+
+    function clearCookies() {
+      console.log("Cookies refusés.");
+      document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      localStorage.removeItem("cookiesAccepted");
     }
   });
-
-  function loadScripts() {
-    // Google Analytics
-    var ga = document.createElement("script");
-    ga.src = "https://www.googletagmanager.com/gtag/js?id=G-LHVQ0VS1FQ";
-    ga.async = true;
-    document.head.appendChild(ga);
-
-    var gtag = document.createElement("script");
-    gtag.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-LHVQ0VS1FQ');
-    `;
-    document.head.appendChild(gtag);
-
-    // Google AdSense
-    var ads = document.createElement("script");
-    ads.async = true;
-    ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161270640127476";
-    ads.crossOrigin = "anonymous";
-    document.head.appendChild(ads);
-  }
-});
 </script>
   </head>
 
