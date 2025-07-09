@@ -24,6 +24,18 @@ def add_security_headers(response):
     response.headers['X-Frame-Options'] = "SAMEORIGIN"
     response.headers['Referrer-Policy'] = "strict-origin-when-cross-origin"
     response.headers['Permissions-Policy'] = "geolocation=(), microphone=(), camera=()"
+    response.headers['Content-Security-Policy'] = (
+        "default-src 'self'; "
+        "script-src 'self' https://cdn.jsdelivr.net https://pagead2.googlesyndication.com "
+        "https://tpc.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com "
+        "https://adservice.google.com 'unsafe-inline' 'unsafe-eval'; "
+        "style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net 'unsafe-inline'; "
+        "font-src https://fonts.gstatic.com; "
+        "img-src 'self' data: https: https://tpc.googlesyndication.com https://googleads.g.doubleclick.net; "
+        "connect-src https://www.google-analytics.com https://pagead2.googlesyndication.com "
+        "https://adservice.google.com https://deep3d.fr; "
+        "frame-src https://*.doubleclick.net https://*.googlesyndication.com https://googleads.g.doubleclick.net;"
+    )
     return response
 
 @app.route("/like/<projet_id>", methods=["POST"])
