@@ -1,0 +1,10 @@
+{
+    "name": "Deep3D",
+    "short_name": "Deep3D",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "description": "Tests, STL et guides autour de l'impression 3D",
+    "icons": []
+  }
