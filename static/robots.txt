@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /admin/
 Allow: /
 
 Sitemap: https://deep3d.fr/sitemap.xml
