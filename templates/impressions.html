@@ -9,6 +9,20 @@
 
 <div class="projects-container">
 
+  <!-- 🐶 Balloon Dog Poop -->
+<div class="card">
+  <a href="{{ url_for('projet', nom='balloon-dog-poop') }}">
+    <img src="{{ url_for('static', filename='images/balloon-dog-poop-2.jpg') }}" alt="Balloon Dog Poop 3D"
+         style="max-width: 600px; display: block; margin: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+  </a>
+  <h2>Balloon Dog Poop</h2>
+  <p>Une parodie brillante du chien ballon de Jeff Koons, drôle et design. L’art pop devient imprimable !</p>
+  <div class="buttons" style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;">
+    <button class="like-btn" data-projet="balloon-dog-poop">❤️ J'aime <span class="like-count">0</span></button>
+    <button class="share-btn" data-url="{{ url_for('projet', nom='balloon-dog-poop', _external=True) }}">📤 Partager</button>
+  </div>
+</div>
+
   <!-- 🧊 Cube Infini -->
   <div class="card">
     <a href="{{ url_for('projet', nom='cube-infini') }}">
