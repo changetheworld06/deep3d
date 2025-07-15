@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Test & Analyse : Prusa Core One{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 30px;">
+  <img src="{{ url_for('static', filename='images/prusa-core-one.jpeg') }}" alt="Prusa Core One" style="max-width: 50%; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+</div>
+
+<div class="article-container" style="max-width: 800px; margin: auto; padding: 40px 20px;">
+  <h1>Prusa Core One : L’Imprimante 3D CoreXY Compacte et Haute Performance pour Matériaux Avancés</h1>
+
+  <p><a href="https://www.prusa3d.com/product/prusa-core-one/" target="_blank" rel="noopener noreferrer"><strong>Prusa Research</strong></a>, acteur incontournable de l’impression 3D, élargit sa gamme avec la <strong>Prusa Core One</strong>, sa première incursion dans le monde des imprimantes 3D CoreXY entièrement fermées. Conçue pour les professionnels, les fablabs et les makers exigeants, cette machine se positionne comme une solution premium axée sur la performance, la fiabilité et la polyvalence, notamment pour l'impression de matériaux techniques.</p>
+
+  <p>La Core One marque une rupture avec l’architecture « bed-slinger » (à plateau mobile) des célèbres modèles i3 de la marque. Elle répond à une demande croissante du marché pour des machines plus rapides et capables de gérer des filaments exigeants. Elle offre un volume d'impression 30 % supérieur à celui d'une Prusa MK4S tout en occupant 50 % moins d’espace qu’une MK4S placée dans une enceinte externe — un atout majeur pour les ateliers où l’optimisation de l’espace est essentielle.</p>
+
+  <h2>Caractéristiques Techniques Principales</h2>
+  <table>
+    <thead><tr><th>Caractéristique</th><th>Spécification</th></tr></thead>
+    <tbody>
+      <tr><td>Technologie d’impression</td><td>FDM CoreXY</td></tr>
+      <tr><td>Volume d’impression</td><td>250 x 220 x 270 mm</td></tr>
+      <tr><td>Hauteur de couche</td><td>50 à 300 microns</td></tr>
+      <tr><td>Extrudeur</td><td>Direct Drive “Nextruder” amélioré</td></tr>
+      <tr><td>Buse d’origine</td><td>0.4 mm laiton CHT “High Flow”</td></tr>
+      <tr><td>Temp. max buse / plateau</td><td>290°C / 120°C</td></tr>
+      <tr><td>Chambre fermée et contrôlée</td><td>Oui, jusqu’à 55°C avec ventilation active</td></tr>
+      <tr><td>Matériaux compatibles</td><td>PLA, PETG, ABS, ASA, PC, PA, flex, composites</td></tr>
+      <tr><td>Vitesse max typique</td><td>~350 mm/s</td></tr>
+      <tr><td>Nivellement plateau</td><td>Automatique, capteur de force multi-points</td></tr>
+      <tr><td>Électronique</td><td>xBuddy 32 bits, WiFi / Ethernet / USB, NFC</td></tr>
+      <tr><td>Dimensions / Poids</td><td>41.5 × 44.4 × 55.5 cm / 22.5 kg</td></tr>
+      <tr><td>Prise en main</td><td>Pré-assemblée ou en kit, prête en 10 min</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Innovations et Points Forts</h2>
+  <ul>
+    <li><strong>Compacte et modulaire</strong> : structure acier rigide, démontable facilement.</li>
+    <li><strong>Chambre ventilée</strong> : 55°C, idéale pour matériaux techniques.</li>
+    <li><strong>Fiabilité</strong> : composants éprouvés, open-source, facilement maintenable.</li>
+    <li><strong>Précision & rapidité</strong> : architecture CoreXY + refroidissement à 360°.</li>
+    <li><strong>Expérience Plug & Play</strong> : calibrée et prête en 10 min avec auto-nivellement.</li>
+    <li><strong>Matériaux supportés</strong> : PLA à PA-CF, flexibles et composites.</li>
+    <li><strong>Connectivité</strong> : intégration PrusaSlicer + Prusa Connect + USB/Wi-Fi.</li>
+  </ul>
+
+  <h2>Limites et Points de Vigilance</h2>
+  <ul>
+    <li><strong>Chambre passivement chauffée</strong> (via plateau), montée lente pour PA/PC.</li>
+    <li><strong>Buse laiton par défaut</strong> : <a href="https://www.amazon.fr/DUROZZLE-imprimante-Anycubic-r%C3%A9sistante-labrasion/dp/B0DGLKWK41?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3MTRB4LHS6JW6&dib=eyJ2IjoiMSJ9.nJTzOpS7jK_BfkoupYZG2DxhF9WLSJH8yAudNs3cvYKQqnQWlS_l7UOD7YR4RK5pVEOUEh-mHnWzjylhglcpXN9fODimxsEGgUtA9QaZYpI3Eq-6vTIxKSWArQ475Vc8x_6tdn7yPtOEAdPlMsENS5SPwjWRKsgmOHCFoQWhBCpz4IdZkND63bk3BeP8D_FDgcuI6upMBMYvF02cHxGW5g9XdmyeBWVZWMxsnCakDZ3wTWuUokC5WHIwGGhMe1Qgf_6sC8C5GbrXymdlfdjDVY2lcxGqwrhkF1wfUiEjzAU.vZG_OFPfZiqEujmBYJQe6th_GUHx-hUBm9kwbEVCEiQ&dib_tag=se&keywords=Buse%2BX%2BE3D%2BV6%2B0.4%2Bmm&qid=1752577285&sprefix=buse%2Bx%2Be3d%2Bv6%2B0.4%2Bmm%2Caps%2C222&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=deep3d-21&linkId=efb1bbdca321e828426379df2e756802&language=fr_FR&ref_=as_li_ss_tl" target="_blank">prévoir buse acier durci</a> pour matériaux abrasifs.</li>
+    <li><strong>Écran tactile</strong> identique à MK4S, interface peu moderne.</li>
+    <li><strong>Caméra en option</strong>, basique, image perfectible.</li>
+    <li><strong>Prix élevé</strong> mais justifié par qualité et polyvalence.</li>
+  </ul>
+
+  <h2>Positionnement sur le Marché</h2>
+  <p>Face aux Bambu Lab P1S/X1C, Raise3D E2 ou Creality K1C, la Prusa Core One se distingue par sa philosophie open-source, sa réparabilité, sa compatibilité avec les matériaux avancés et sa robustesse mécanique.</p>
+  <ul>
+    <li>Pour les <strong>fermes d’impression</strong> : fiabilité continue, faible encombrement.</li>
+    <li>Pour les <strong>designers</strong> : rapidité, précision, surplombs jusqu’à 75°.</li>
+    <li>Pour les <strong>utilisateurs MK4S</strong> : évolution naturelle + kit de conversion disponible.</li>
+  </ul>
+
+  <img src="{{ url_for('static', filename='images/prusa-core-one1.jpeg') }}" alt="Prusa Core One" style="max-width: 50%; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+
+  <h2>Conclusion</h2>
+  <p>La Prusa Core One s'impose comme une réponse solide et attendue sur le segment des imprimantes 3D CoreXY "prosumer". Elle combine intelligemment la vitesse et la précision de son architecture avec la fiabilité et la polyvalence qui ont fait la renommée de Prusa. En se concentrant sur une conception durable, une maintenance aisée et une gestion optimisée des matériaux techniques, elle constitue une solution particulièrement pertinente pour les usages intensifs et professionnels.</p>
+  <p>Bien que son prix la place dans une catégorie premium, la qualité de fabrication, la performance et l'écosystème logiciel justifient l'investissement pour ceux qui recherchent une machine compacte, efficace et pérenne. La Core One n'est pas seulement une nouvelle imprimante ; elle incarne un standard de fiabilité et de polyvalence pour l'avenir de l'impression 3D FDM de bureau.</p>
+
+  <h2>FAQ</h2>
+  <ul>
+    <li><strong>Quel est son principal avantage ?</strong><br>Son principal avantage est sa chambre fermée avec contrôle actif de la température. En maintenant une température stable jusqu'à 55°C, elle prévient la déformation et la délamination des matériaux sensibles comme l'ASA, l'ABS, le Nylon ou le Polycarbonate, garantissant ainsi des impressions fiables et de haute qualité.</li>
+    <li><strong>Comment améliore-t-elle la qualité ?</strong><br>Elle crée un environnement thermique stable qui minimise les chocs thermiques, responsables du "warping" (les coins de la pièce qui se décollent du plateau). Cela assure une meilleure adhésion inter-couches et une plus grande précision dimensionnelle, en particulier pour les pièces de grande taille ou complexes imprimées avec des matériaux techniques.</li>
+    <li><strong>Pourquoi CoreXY est plus rapide ?</strong><br>La cinématique CoreXY utilise deux moteurs fixes pour contrôler le mouvement de la tête d'impression sur les axes X et Y. En réduisant la masse en mouvement (pas de moteur sur le chariot), ce système permet des accélérations et des vitesses d'impression plus élevées avec moins d'inertie et de vibrations. Il en résulte des impressions plus nettes et plus précises, même à haute vitesse.</li>
+    <li><strong>Différences avec MK4S ?</strong><br>La Prusa Core One est beaucoup plus compacte. Pour un volume d'impression supérieur de 30% (250x220x270 mm contre 250x210x220 mm pour la MK4S), elle occupe 50% d'espace en moins qu'une MK4S équipée d'une enceinte externe.</li>
+    <li><strong>Facilité d’utilisation ?</strong><br>La version assemblée de la Core One peut être opérationnelle en environ 10 minutes. Le processus est simplifié par une calibration entièrement automatique de la première couche et une interface utilisateur intuitive. Ces automatisations éliminent les étapes de réglages manuels souvent complexes pour les débutants, rendant l'impression 3D beaucoup plus accessible.</li>
+  </ul>
+
+  <p><strong>👉 Voir la <a href="https://www.prusa3d.com/product/prusa-core-one/" target="_blank">fiche produit officielle sur Prusa3D.com</a></strong></p>
+
+  <!-- Section commentaires -->
+  <section style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+    <h2>💬 Commentaires</h2>
+    <script src="https://utteranc.es/client.js"
+            repo="changetheworld06/deep3d"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </section>
+</div>
+{% endblock %}
