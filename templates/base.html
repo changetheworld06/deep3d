@@ -37,203 +37,255 @@
   
     <!-- Feuille de style -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="canonical" href="https://deep3d.fr/">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
   
-<!-- Cookie Consent (RGPD) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-
-<style>
-  .cc-window {
-    max-width: 600px !important;
-    width: 90% !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    position: fixed !important;
-    z-index: 10000 !important;
-    background-color: rgba(130, 34, 34, 0.5) !important;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important;
-    text-align: center;
-  }
-
-  .cc-btn.cc-allow {
-    background-color: #f1d600 !important;
-    color: #000 !important;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 4px;
-    margin: 5px;
-  }
-
-  .cc-link {
-    color: #f1d600 !important;
-    text-decoration: underline;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 10px;
-  }
-</style>
-
-<script>
-  window.addEventListener("load", function () {
-    if (!window.cookieconsent) return;
-
-    cookieconsent.initialise({
-      palette: {
-        popup: { background: "#000" },
-        button: { background: "#f1d600", text: "#000" }
-      },
-      theme: "classic",
-      type: "opt-in",
-      layout: "basic",
-      content: {
-        message: "Ce site utilise des cookies pour mesurer l’audience et afficher de la publicité personnalisée.",
-        allow: "Accepter",
-        link: "Modifier mes choix",
-        href: "#"
-      },
-
-      onInitialise: function (status) {
-        if (status === cookieconsent.status.allow) loadConsentScripts();
-      },
-
-      onStatusChange: function (status) {
-        if (status === cookieconsent.status.allow) {
-          loadConsentScripts();
-        } else {
-          clearCookies();
-        }
-      },
-
-      onPopupOpen: function () {
-        const popup = document.querySelector(".cc-window");
-        if (popup) {
-          popup.setAttribute("role", "dialog");
-          popup.setAttribute("aria-modal", "true");
-        }
-
-        const link = document.querySelector(".cc-link");
-        if (link) {
-          link.addEventListener("click", function (e) {
-            e.preventDefault();
-            cookieconsent.show();
-          });
-        }
+    <style>
+      .cc-window {
+        z-index: 10001 !important;
       }
-    });
+      .cc-btn.cc-allow, .cc-btn.cc-deny {
+        display: inline-block !important;
+        min-width: 120px;
+        margin: 8px;
+        font-size: 1em;
+      }
+      #consent-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0, 0, 0, 0.7);
+        color: white; z-index: 10000;
+        display: none;
+        align-items: center; justify-content: center; text-align: center;
+        padding: 2rem; font-size: 1.2rem; backdrop-filter: blur(4px);
+      }
+      #consent-overlay.show { display: flex; }
+      #consent-overlay .overlay-content {
+        max-width: 420px;
+        margin: auto;
+        background: rgba(30,30,30,0.85);
+        padding: 32px 18px 18px 18px;
+        border-radius: 16px;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      }
+      #retry-cookie {
+        margin-top: 22px;
+        background: #f1d600;
+        color: #000;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        padding: 14px 28px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background 0.2s;
+      }
+      #retry-cookie:hover {
+        background: #ffe144;
+      }
+      @media (max-width: 600px) {
+        #consent-overlay .overlay-content { padding: 18px 8px; }
+      }
 
-    function loadConsentScripts() {
-      // Google Analytics
-      const ga = document.createElement("script");
-      ga.src = "https://www.googletagmanager.com/gtag/js?id=G-LHVQ0VS1FQ";
-      ga.async = true;
-      document.head.appendChild(ga);
+      /* Styles robustes pour garantir la visibilité des boutons CookieConsent */
+.cc-btn, .cc-btn.cc-allow, .cc-btn.cc-deny {
+  color: #000 !important;
+  font-size: 1em !important;
+  text-indent: 0 !important;
+  text-shadow: none !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  background: none !important; /* Le background color est déjà défini */
+  opacity: 1 !important;
+  border: none;
+}
 
-      const gtag = document.createElement("script");
-      gtag.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-LHVQ0VS1FQ');
-      `;
-      document.head.appendChild(gtag);
+.cc-btn.cc-allow { background: #f1d600 !important; }
+.cc-btn.cc-deny  { background: #bbb !important; }
 
-      // Google AdSense
-      const ads = document.createElement("script");
-      ads.async = true;
-      ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161270640127476";
-      ads.crossOrigin = "anonymous";
-      document.head.appendChild(ads);
-    }
-
-    function clearCookies() {
-      console.log("Cookies refusés.");
-      document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      document.cookie = "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      localStorage.removeItem("cookiesAccepted");
-    }
-  });
-</script>
+.cc-btn span, .cc-btn * {
+  color: #000 !important;
+  text-indent: 0 !important;
+}
+    </style>
+   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+   <script>
+     let ccInstance = null;
+   
+     function loadConsentScripts() {
+       // Google Analytics & AdSense (comme plus haut)
+       if (!window._ga_loaded) {
+         const ga = document.createElement("script");
+         ga.src = "https://www.googletagmanager.com/gtag/js?id=G-LHVQ0VS1FQ";
+         ga.async = true;
+         document.head.appendChild(ga);
+         const gtag = document.createElement("script");
+         gtag.innerHTML = `
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', 'G-LHVQ0VS1FQ');
+         `;
+         document.head.appendChild(gtag);
+         window._ga_loaded = true;
+       }
+       if (!window._adsense_loaded) {
+         const ads = document.createElement("script");
+         ads.async = true;
+         ads.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161270640127476";
+         ads.crossOrigin = "anonymous";
+         document.head.appendChild(ads);
+         window._adsense_loaded = true;
+       }
+     }
+     function clearCookies() {
+       document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+       document.cookie = "_gid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+       localStorage.removeItem("cookiesAccepted");
+     }
+     function showOverlay(show) {
+       const overlay = document.getElementById("consent-overlay");
+       if (overlay) {
+         if (show) overlay.classList.add("show");
+         else overlay.classList.remove("show");
+       }
+     }
+   
+     // Initialisation CookieConsent + attachement du bouton (le BON moment)
+     window.addEventListener("load", function () {
+       ccInstance = window.cookieconsent.initialise({
+         palette: {
+           popup: { background: "#000" },
+           button: { background: "#f1d600", text: "#000" }
+         },
+         theme: "classic",
+         type: "opt-in",
+         layout: "basic",
+         content: {
+           message: "Ce site utilise des cookies pour mesurer l’audience et afficher des publicités personnalisées.",
+           allow: "Accepter",
+           deny: "Refuser",
+           link: "En savoir plus",
+           href: "/confidentialite"
+         },
+         onInitialise: function () {
+           if (this.hasConsented()) {
+             loadConsentScripts();
+             showOverlay(false);
+           } else if (this.hasAnswered() && !this.hasConsented()) {
+             showOverlay(true); // Affiche le filtre si refus
+           } else {
+             showOverlay(false);
+           }
+           // ⬇️ Attache ici après instanciation garantie
+           document.getElementById("retry-cookie").onclick = () => {
+             if (typeof this.open === "function") this.open();
+           };
+         },
+         onStatusChange: function () {
+           if (this.hasConsented()) {
+             loadConsentScripts();
+             showOverlay(false);
+           } else if (this.hasAnswered() && !this.hasConsented()) {
+             clearCookies();
+             showOverlay(true);
+           } else {
+             showOverlay(false);
+           }
+         },
+         onPopupOpen: function () {
+           showOverlay(false);
+         }
+       });
+     });
+   </script>
   </head>
-
-<body>
-
-<header>
-  <div class="header-container">
-    <a href="/" class="logo-link" aria-label="Accueil">
-      <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt="Logo Deep3D">
-    </a>
-    <nav class="navbar-links" role="navigation" aria-label="Menu principal">
-      <a href="/">Accueil</a>
-      <a href="/articles">Articles</a>
-      <a href="/impressions">Impressions 3D</a>
-      <a href="/tests">Tests</a>
-      <a href="{{ url_for('news') }}">News</a>
-      <a href="{{ url_for('guide') }}">Guide</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  {% block content %}{% endblock %}
-</main>
-
-<footer>
-  <p>&copy; {{ current_year }} Deep3D – Tous droits réservés.</p>
-  <p><a href="/mentions-legales">Mentions légales</a> – <a href="/confidentialite">Politique de confidentialité</a></p>
-  <p style="font-size: 0.9em; color: #888;">
-    Site conçu avec 💡 par <a href="https://vitrineboost.fr" target="_blank" rel="noopener noreferrer">VitrineBoost.fr</a>
-  </p>
-</footer>
-
-<script src="{{ url_for('static', filename='js/interactions.js') }}" defer></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    fetch("/likes")
-      .then(res => res.json())
-      .then(data => {
-        document.querySelectorAll(".like-btn").forEach(btn => {
-          const projet = btn.dataset.projet;
-          const countSpan = btn.querySelector(".like-count");
-          countSpan.innerText = data[projet] ?? 0;
-
-          if (localStorage.getItem("liked-" + projet) === "true") {
-            btn.classList.add("liked");
-          }
-
+  <body>
+    <!-- Overlay RGPD affiché SI refus -->
+    <div id="consent-overlay">
+      <div class="overlay-content">
+        <p>
+          <strong>Vous avez refusé les cookies.</strong><br>
+          Ce site nécessite votre consentement pour fonctionner correctement et afficher des publicités personnalisées.
+        </p>
+        <button id="retry-cookie">Préférences cookies</button>
+      </div>
+    </div>
+  
+    <header>
+      <div class="header-container">
+        <a href="/" class="logo-link" aria-label="Accueil">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt="Logo Deep3D">
+        </a>
+        <nav class="navbar-links" role="navigation" aria-label="Menu principal">
+          <a href="/">Accueil</a>
+          <a href="/articles">Articles</a>
+          <a href="/impressions">Impressions 3D</a>
+          <a href="/tests">Tests</a>
+          <a href="{{ url_for('news') }}">News</a>
+          <a href="{{ url_for('guide') }}">Guide</a>
+        </nav>
+      </div>
+    </header>
+  
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+  
+    <footer>
+      <p>&copy; {{ current_year }} Deep3D – Tous droits réservés.</p>
+      <p><a href="/mentions-legales">Mentions légales</a> – <a href="/confidentialite">Politique de confidentialité</a></p>
+      <p style="font-size: 0.9em; color: #888;">
+        Site conçu avec 💡 par <a href="https://vitrineboost.fr" target="_blank" rel="noopener noreferrer">VitrineBoost.fr</a>
+      </p>
+    </footer>
+  
+    <script src="{{ url_for('static', filename='js/interactions.js') }}" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("/likes")
+          .then(res => res.json())
+          .then(data => {
+            document.querySelectorAll(".like-btn").forEach(btn => {
+              const projet = btn.dataset.projet;
+              const countSpan = btn.querySelector(".like-count");
+              countSpan.innerText = data[projet] ?? 0;
+  
+              if (localStorage.getItem("liked-" + projet) === "true") {
+                btn.classList.add("liked");
+              }
+  
+              btn.addEventListener("click", () => {
+                const liked = btn.classList.contains("liked");
+                const action = liked ? "unlike" : "like";
+                fetch("/like/" + projet, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ action })
+                })
+                .then(res => res.json())
+                .then(data => {
+                  countSpan.innerText = data.likes;
+                  btn.classList.toggle("liked");
+                  localStorage.setItem("liked-" + projet, !liked);
+                });
+              });
+            });
+          });
+  
+        document.querySelectorAll(".share-btn").forEach(btn => {
           btn.addEventListener("click", () => {
-            const liked = btn.classList.contains("liked");
-            const action = liked ? "unlike" : "like";
-
-            fetch("/like/" + projet, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ action })
-            })
-            .then(res => res.json())
-            .then(data => {
-              countSpan.innerText = data.likes;
-              btn.classList.toggle("liked");
-              localStorage.setItem("liked-" + projet, !liked);
+            const url = btn.dataset.url;
+            navigator.clipboard.writeText(url).then(() => {
+              btn.textContent = "✅ Lien copié !";
+              setTimeout(() => {
+                btn.textContent = "📤 Partager";
+              }, 2000);
             });
           });
         });
       });
-
-    document.querySelectorAll(".share-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const url = btn.dataset.url;
-        navigator.clipboard.writeText(url).then(() => {
-          btn.textContent = "✅ Lien copié !";
-          setTimeout(() => {
-            btn.textContent = "📤 Partager";
-          }, 2000);
-        });
-      });
-    });
-  });
-</script>
-
-</body>
-</html>
+    </script>
+  </body>
+  </html>
